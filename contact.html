@@ -115,8 +115,10 @@ body.is-ready .curtain { transform: scaleY(0); transform-origin: bottom; transit
   line-height: 0.95; letter-spacing: -0.03em;
 }
 a.float-book {
-  display: none; position: fixed; z-index: 48; left: 16px; right: 16px; bottom: 16px;
-  text-decoration: none; text-align: center;
+  display: none; position: fixed; z-index: 48; left: 12px; right: 12px; bottom: 12px;
+  width: auto; max-width: calc(100vw - 24px); box-sizing: border-box;
+  text-decoration: none; text-align: center; justify-content: center;
+  letter-spacing: 0.08em; padding-left: 12px; padding-right: 12px;
 }
 
 .btn {
@@ -414,7 +416,9 @@ a.float-book {
   line-height: 0.9; letter-spacing: -0.035em; margin-top: 8px;
 }
 .jaipur-note { color: var(--ink-soft); }
-.jaipur-stage { display: grid; grid-template-columns: minmax(240px, 0.42fr) 1.35fr; gap: clamp(20px, 3vw, 48px); align-items: start; }
+.jaipur-stage { display: grid; grid-template-columns: minmax(240px, 0.42fr) 1.35fr; grid-template-areas: "list photos"; gap: clamp(20px, 3vw, 48px); align-items: start; }
+.places { grid-area: list; }
+.jaipur-mosaic { grid-area: photos; }
 .places { display: flex; flex-direction: column; justify-content: space-between; align-self: stretch; margin: 0; padding: 0; list-style: none; }
 .places li {
   display: grid; grid-template-columns: 42px 1fr; gap: 8px; align-items: baseline;
@@ -616,7 +620,8 @@ a.float-book {
   a.float-book.is-hidden { display: none; }
   .portal { width: min(300px, 78vw); height: min(300px, 38dvh); }
   .jali-panel { display: none; }
-  body { padding-bottom: 104px; overflow-x: hidden; }
+  html, body { overflow-x: clip; max-width: 100%; }
+  body { padding-bottom: 96px; }
   .remember-pin, .orbit-pin, .jaipur, .enquiry, .footer-grid, .stay-grid, .about-wrap, .story-block, .contact-grid, .panel {
     grid-template-columns: 1fr;
   }
@@ -630,15 +635,26 @@ a.float-book {
   .orbit-card-copy { display: grid; gap: 10px; padding-top: 12px; }
   .room-index { display: none; }
   .room-dissolve { display: none; }
-  .comfort-pin { height: auto; min-height: 0; overflow: visible; }
-  .comfort-track { display: flex; flex-direction: column; height: auto; width: 100%; transform: none; }
+  .comfort-pin, .comfort-track { transform: none !important; height: auto !important; min-height: 0 !important; width: 100% !important; overflow: visible !important; }
+  .comfort-track { display: block !important; }
   .panel {
-    display: flex; flex-direction: column; width: 100%; flex: none; min-height: 0;
-    border-right: 0; border-bottom: 1px solid var(--line);
+    display: block !important; width: 100% !important; min-height: 0 !important; height: auto !important;
+    flex: none !important; border-right: 0; border-bottom: 1px solid var(--line);
   }
-  .panel-photo { width: 100%; height: 58vw; min-height: 210px; flex: none; }
-  .panel-photo img { transform: none; }
-  .panel-copy, .park-panel .panel-copy { position: relative; width: auto; padding: 22px var(--pad) 28px; }
+  .panel-photo { display: block; position: relative; width: 100%; height: 220px !important; min-height: 0 !important; max-height: 220px; overflow: hidden; }
+  .panel-photo img { position: absolute; inset: 0; width: 100%; height: 100%; transform: none !important; }
+  .comfort { overflow: visible; width: 100%; max-width: 100%; }
+  .panel-copy, .park-panel .panel-copy {
+    position: relative !important; display: block; width: 100% !important; max-width: 100% !important;
+    height: auto !important; min-width: 0; box-sizing: border-box;
+    padding: 18px 20px 28px !important; background: var(--ivory);
+  }
+  .panel-copy p, .panel-copy h3, .panel p, .panel h3 {
+    max-width: 100% !important; width: auto; min-width: 0;
+    white-space: normal; overflow-wrap: anywhere;
+  }
+  .panel.is-sand .panel-copy { background: var(--sand); }
+  .panel.is-ink .panel-copy { background: transparent; }
   .arrival-art { grid-template-columns: 1fr 1fr 1fr; }
   .arrival-art figure, .arrival-art figure:nth-child(2), .arrival-art figure:nth-child(3) { transform: none; }
   .arrival-art img { height: 34vw; }
@@ -649,8 +665,10 @@ a.float-book {
   .arrange .wide, .arrange .tall { grid-column: auto; grid-row: auto; }
   .jaipur-head, .jaipur-stage { grid-template-columns: 1fr; }
   .jaipur-stage { display: flex; flex-direction: column; }
-  .jaipur-mosaic { order: -1; grid-template-columns: 1fr; grid-template-rows: 58vw; position: sticky; top: calc(var(--nav) + 6px); z-index: 2; }
+  .jaipur-mosaic { display: block; position: relative; top: auto; order: -1; width: 100%; height: auto; grid-template-rows: none; }
+  .mosaic-main { display: block; position: relative; width: 100%; height: 230px; min-height: 230px; }
   .jaipur-mosaic figure:not(.mosaic-main) { display: none; }
+  a.float-book { letter-spacing: 0.06em; font-size: 12px; }
   .voice-track { grid-template-columns: 1fr 1fr; }
   .form, .summary dl { grid-template-columns: 1fr; }
   .ticket { grid-template-columns: 1fr; }
