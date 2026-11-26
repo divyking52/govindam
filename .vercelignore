@@ -1,0 +1,6 @@
+_parts/*-cdp/
+_parts/*profile*/
+_parts/cprofile*/
+_parts/v2/
+_parts/*.png
+.vercel/
