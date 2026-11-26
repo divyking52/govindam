@@ -1,0 +1,64 @@
+<section class="contact-grid">
+  <div class="contact-side">
+    <p class="eyebrow">Contact</p>
+    <h1>Write, call, or continue to book.</h1>
+    <p>76-B, Talkatora Colony,<br>J.D.A. Market, Brahampuri,<br>Jaipur, Rajasthan</p>
+    <p><a href="tel:+919829057118">+91 98290 57118</a><br><a href="mailto:govindamroyalstay@gmail.com">govindamroyalstay@gmail.com</a></p>
+    <p class="fine">Check-in 12:00 PM · Check-out 10:00 AM</p>
+    <div class="cta-row">
+      <a class="btn btn-fill" href="tel:+919829057118">Call now</a>
+      <a class="btn btn-line" href="https://wa.me/919829057118">WhatsApp</a>
+      <a class="btn btn-line" href="https://govindamroyalstay.pripgo.com/">Continue to Booking</a>
+    </div>
+  </div>
+  <div data-tabs>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-book" aria-selected="true" aria-controls="panel-book">Booking enquiry</button>
+      <button type="button" role="tab" id="tab-note" aria-selected="false" aria-controls="panel-note">Contact note</button>
+    </div>
+    <div id="panel-book">
+      <form class="form enquiry-form" novalidate>
+        <div class="field"><label for="b-checkin">Check-in</label><input id="b-checkin" name="checkin" type="date" required><span class="err"></span></div>
+        <div class="field"><label for="b-checkout">Check-out</label><input id="b-checkout" name="checkout" type="date" required><span class="err"></span></div>
+        <div class="field"><label for="b-guests">Guests</label><input id="b-guests" name="guests" type="number" min="1" max="24" value="2" required><span class="err"></span></div>
+        <div class="field"><label for="b-rooms">Rooms</label><input id="b-rooms" name="rooms" type="number" min="1" max="16" value="1" required><span class="err"></span></div>
+        <div class="field"><label for="b-guest">Guest name</label><input id="b-guest" name="guest" type="text" required autocomplete="name"><span class="err"></span></div>
+        <div class="field"><label for="b-mobile">Mobile number</label><input id="b-mobile" name="mobile" type="tel" required autocomplete="tel"><span class="err"></span></div>
+        <div class="field full"><label for="b-email">Email address</label><input id="b-email" name="email" type="email" required autocomplete="email"><span class="err"></span></div>
+        <div class="field full"><label for="b-requests">Special requests</label><textarea id="b-requests" name="requests"></textarea><span class="err"></span></div>
+        <div class="form-actions"><button class="btn btn-fill" type="submit">Enquire about your stay</button></div>
+      </form>
+      <div class="summary">
+        <h3 tabindex="-1">Review your enquiry</h3>
+        <p class="warn">This summary stays on this page so you can check it. Continue to Booking opens the reservation site. A stay is not confirmed here.</p>
+        <dl></dl>
+        <div class="cta-row">
+          <button class="btn btn-line" type="button" data-edit>Edit details</button>
+          <a class="btn btn-fill" data-book href="https://govindamroyalstay.pripgo.com/">Continue to Booking</a>
+        </div>
+      </div>
+    </div>
+    <div id="panel-note" hidden>
+      <form class="form contact-form" novalidate>
+        <div class="field"><label for="c-guest">Name</label><input id="c-guest" name="guest" type="text" required autocomplete="name"><span class="err"></span></div>
+        <div class="field"><label for="c-mobile">Mobile number</label><input id="c-mobile" name="mobile" type="tel" required autocomplete="tel"><span class="err"></span></div>
+        <div class="field full"><label for="c-email">Email address</label><input id="c-email" name="email" type="email" required autocomplete="email"><span class="err"></span></div>
+        <div class="field full"><label for="c-message">Message</label><textarea id="c-message" name="message" required></textarea><span class="err"></span></div>
+        <div class="form-actions"><button class="btn btn-fill" type="submit">Review message</button></div>
+      </form>
+      <div class="summary">
+        <h3 tabindex="-1">Review your note</h3>
+        <p class="warn">This page does not deliver the note by itself. Send it with your email app, or call the property.</p>
+        <dl></dl>
+        <div class="cta-row">
+          <button class="btn btn-line" type="button" data-edit>Edit details</button>
+          <a class="btn btn-fill" data-mail href="mailto:govindamroyalstay@gmail.com">Send by email</a>
+          <a class="btn btn-line" href="tel:+919829057118">Call now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="map-wrap">
+  <iframe title="Map of Govindam Royal Stay at Talkatora Colony, Jaipur" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=26.9326471,75.8264964&amp;z=16&amp;hl=en&amp;output=embed"></iframe>
+</div>

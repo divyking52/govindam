@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · Govindam Royal Stay</title>
+<meta name="description" content="Address, phone, map and booking enquiry for Govindam Royal Stay, Jaipur.">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,560&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("reduce");</script>
+<style>
+:root {
+  --ivory: #f3eee4;
+  --paper: #faf6ef;
+  --sand: #e7d8c4;
+  --sand-deep: #d9c4a6;
+  --stone: #a78462;
+  --wine: #6e2430;
+  --wine-deep: #541b25;
+  --ink: #24170f;
+  --ink-soft: #5e4d40;
+  --gold: #9a7540;
+  --line: rgba(36, 23, 15, 0.16);
+  --serif: "Fraunces", "Palatino Linotype", Palatino, serif;
+  --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  --nav: 76px;
+  --pad: clamp(20px, 4vw, 64px);
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: auto; }
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: inherit; }
+h1, h2, h3, p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+::selection { background: #e7c7a4; color: var(--ink); }
+:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
+.sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.skip {
+  position: absolute; left: 12px; top: -40px; z-index: 80;
+  background: var(--ink); color: var(--ivory); padding: 8px 12px;
+}
+.skip:focus { top: 12px; }
+
+.progress {
+  position: fixed; left: 0; top: 0; height: 2px; width: 100%;
+  transform: scaleX(0); transform-origin: 0 50%;
+  background: var(--wine); z-index: 60; pointer-events: none;
+}
+.curtain {
+  position: fixed; inset: 0; z-index: 70; background: var(--wine-deep);
+  transform: scaleY(0); transform-origin: top;
+  pointer-events: none;
+}
+body.is-leaving .curtain { transform: scaleY(1); transition: transform .45s cubic-bezier(.77,0,.18,1); }
+body.is-ready .curtain { transform: scaleY(0); transform-origin: bottom; transition: transform .7s cubic-bezier(.77,0,.18,1); }
+
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; min-height: var(--nav); padding: 0 var(--pad);
+  color: var(--ink);
+}
+.nav.is-solid {
+  background: rgba(243, 238, 228, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav.is-light { color: #f6f1e8; }
+.nav.is-light.is-solid { color: var(--ink); }
+.brand { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+.brand b { font-family: var(--serif); font-weight: 520; font-size: 22px; letter-spacing: -0.03em; }
+.brand small { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 4px; }
+.nav-links { display: flex; gap: 26px; align-items: center; }
+.nav-links a {
+  text-decoration: none; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.nav-links a[aria-current="page"] { box-shadow: inset 0 -1px 0 currentColor; }
+.nav-book { text-decoration: none; }
+.nav-toggle {
+  display: none; width: 46px; height: 46px; border: 0; background: transparent;
+  padding: 0; cursor: pointer; position: relative;
+}
+.nav-toggle span, .nav-toggle span:before, .nav-toggle span:after {
+  display: block; height: 1px; width: 22px; background: currentColor; position: relative;
+}
+.nav-toggle span:before, .nav-toggle span:after { content: ""; position: absolute; left: 0; }
+.nav-toggle span:before { top: -7px; }
+.nav-toggle span:after { top: 7px; }
+.menu {
+  position: fixed; inset: 0; z-index: 45; background: var(--ivory);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 28px var(--pad) 40px; gap: 8px;
+  transform: translateY(-102%); transition: transform .55s cubic-bezier(.77,0,.18,1);
+}
+.menu.is-open { transform: translateY(0); }
+.menu a {
+  text-decoration: none; font-family: var(--serif); font-size: clamp(42px, 12vw, 76px);
+  line-height: 0.95; letter-spacing: -0.03em;
+}
+a.float-book {
+  display: none; position: fixed; z-index: 48; left: 16px; right: 16px; bottom: 16px;
+  text-decoration: none; text-align: center;
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 18px; border: 1px solid transparent;
+  text-decoration: none; cursor: pointer; background: transparent;
+  letter-spacing: 0.16em; text-transform: uppercase; font-size: 12px; font-weight: 500;
+}
+.btn-fill { background: var(--wine); color: #f7f1e7; border-color: var(--wine); }
+.btn-fill:hover { background: var(--wine-deep); }
+.btn-line { border-color: currentColor; }
+.btn-line:hover { background: var(--ink); color: var(--ivory); }
+.nav.is-light .btn-line:hover { background: #f7f1e7; color: var(--ink); }
+
+.eyebrow {
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra, var(--wine));
+  color: var(--wine);
+}
+.lede { max-width: 46ch; color: var(--ink-soft); font-size: 18px; }
+
+.hero { position: relative; }
+.hero-sticky {
+  height: 100vh; height: 100dvh;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  padding: calc(var(--nav) + 10px) var(--pad) 28px;
+  background: var(--ivory); overflow: hidden; position: relative;
+}
+.hero-frame {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+}
+.hero-frame path, .hero-frame circle {
+  fill: none; stroke: var(--gold); stroke-width: 1.35;
+  stroke-linecap: round; stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.hero-frame .wine { stroke: var(--wine); }
+.jali-panel { opacity: 0.42; }
+.dust {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 2; pointer-events: none;
+}
+.portal {
+  width: min(460px, 40vw);
+  height: min(500px, calc(100dvh - 400px));
+  min-height: 230px;
+  border-radius: 240px 240px 12px 12px; overflow: hidden; position: relative;
+  z-index: 1; flex: 0 0 auto; transform-origin: 50% 40%; background: #cbbba6;
+}
+.hero-photo { width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); transform-origin: 50% 60%; }
+.hero-scrim {
+  position: absolute; inset: 0; opacity: 0;
+  background: linear-gradient(to top, rgba(28, 16, 10, 0.72), rgba(28, 16, 10, 0) 52%);
+}
+.arch {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  overflow: visible; pointer-events: none;
+}
+.arch path { fill: none; stroke: #f3e6cf; stroke-width: 1.2; }
+.arch .a2 { stroke: var(--gold); opacity: 0.9; }
+.arch .a3 { opacity: 0.55; }
+.hero-copy {
+  position: relative; z-index: 3; width: min(1100px, 100%);
+  margin-top: 14px; display: grid; gap: 8px;
+}
+.staybar {
+  position: relative; z-index: 5; width: min(1180px, 100%);
+  margin-top: 16px; display: flex; align-items: stretch; gap: 0;
+  background: #fff; color: #24170f; border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(36, 23, 15, 0.12);
+  padding: 8px 8px 8px 18px;
+}
+.staybar-place, .staybar-date, .staybar-occ-btn {
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  min-width: 0; padding: 6px 16px; background: transparent; border: 0;
+  text-align: left; color: inherit; cursor: pointer; font: inherit;
+}
+.staybar-place strong, .staybar-date strong, .staybar-occ-btn strong { font-size: 15px; font-weight: 600; }
+.staybar-place span, .staybar-date span, .staybar-occ-btn span { font-size: 12px; color: #6b5c50; }
+.staybar-dates { position: relative; display: flex; align-items: stretch; flex: 1.4; min-width: 0; }
+.staybar-date { flex: 1; border-radius: 10px; }
+.staybar-date.is-on { background: #f6f1e8; }
+.staybar-date.is-on strong { color: var(--wine); }
+.stay-cal {
+  position: absolute; z-index: 8; left: 0; bottom: calc(100% + 12px);
+  width: min(332px, calc(100vw - 32px));
+  background: #fff; color: var(--ink); border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(36, 23, 15, 0.18); padding: 14px 14px 12px;
+}
+.stay-cal-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.stay-cal-bar strong { font-size: 15px; font-weight: 600; }
+.stay-cal-bar button {
+  width: 32px; height: 32px; border-radius: 50%; border: 1px solid #d9cfc3;
+  background: #fff; color: var(--ink); cursor: pointer; font-size: 20px; line-height: 1;
+}
+.stay-cal-bar button:disabled { opacity: 0.35; cursor: default; }
+.stay-cal-dows, .stay-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+.stay-cal-dows span { text-align: center; font-size: 11px; letter-spacing: 0.04em; color: #6b5c50; padding: 4px 0 6px; }
+.cal-day {
+  height: 36px; border: 0; background: transparent; border-radius: 50%;
+  font: inherit; font-size: 14px; color: var(--ink); cursor: pointer;
+}
+.cal-day:hover:not(:disabled):not(.is-in):not(.is-out) { background: #f3eee4; }
+.cal-day:disabled { color: #cfc3b6; cursor: default; }
+.cal-day.is-range { background: #f3e6d4; border-radius: 0; }
+.cal-day.is-in, .cal-day.is-out { background: var(--wine); color: #fff; border-radius: 50%; }
+.cal-day.is-today:not(.is-in):not(.is-out) { box-shadow: inset 0 0 0 1px var(--wine); }
+.cal-day:focus-visible, .stay-cal-bar button:focus-visible { outline: 2px solid var(--wine); outline-offset: 1px; }
+.stay-cal-hint { margin: 8px 0 0; text-align: center; font-size: 12px; color: #6b5c50; }
+.staybar-nights {
+  align-self: center; width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid #d9cfc3; display: grid; place-items: center;
+  font-size: 13px; font-weight: 600; flex: 0 0 auto;
+}
+.staybar-occ { position: relative; }
+.occ-panel {
+  position: absolute; right: 0; bottom: calc(100% + 10px); width: 240px;
+  background: #fff; border-radius: 12px; box-shadow: 0 12px 32px rgba(36, 23, 15, 0.16);
+  padding: 12px; display: grid; gap: 10px; z-index: 6;
+}
+.occ-panel[hidden] { display: none; }
+.occ-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.staybar .step button { width: 32px; height: 32px; font-size: 18px; }
+.staybar .step input { width: 42px; border: 0; text-align: center; font-weight: 600; }
+.staybar-go {
+  margin-left: 8px; border: 0; border-radius: 10px; background: var(--wine); color: #fff;
+  padding: 0 22px; min-height: 52px; font-weight: 600; letter-spacing: 0.01em; cursor: pointer;
+}
+.staybar-go:hover { background: var(--wine-deep); }
+.staybar-error { position: absolute; left: 18px; bottom: -22px; margin: 0; color: var(--wine); font-size: 13px; }
+.loc { letter-spacing: 0.18em; text-transform: uppercase; font-size: 12px; }
+.hero h1 {
+  font-family: var(--serif); font-weight: 460; letter-spacing: -0.035em;
+  font-size: clamp(46px, 6.2vw, 92px); line-height: 0.88;
+}
+.hero h1 span { display: block; }
+.hero h1 span + span { padding-left: min(18vw, 180px); }
+.hero-row { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: flex-end; justify-content: space-between; }
+.reduce .portal { width: 100%; height: 62vh; border-radius: 0; }
+.reduce .hero-photo { transform: none; }
+.reduce .hero-scrim { opacity: 1; }
+.reduce .hero-sticky { justify-content: flex-end; color: #f6f1e8; }
+.reduce .hero-copy { position: absolute; left: var(--pad); right: var(--pad); bottom: 6vh; margin: 0; }
+.reduce .arch, .reduce .dust { display: none; }
+.reduce .lede { color: rgba(246,241,232,0.86); }
+
+.band { padding: 10px var(--pad); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+.facts span { white-space: nowrap; }
+
+.remember { position: relative; }
+.remember-pin {
+  min-height: 100vh; display: grid; grid-template-columns: minmax(280px, 0.85fr) 1.15fr;
+  gap: clamp(24px, 4vw, 64px); align-items: center; padding: 12vh var(--pad);
+}
+.remember h2 {
+  font-family: var(--serif); font-weight: 460; letter-spacing: -0.035em;
+  font-size: clamp(46px, 5.6vw, 88px); line-height: 0.92; margin: 12px 0 22px;
+}
+.remember-copy p + p { margin-top: 16px; color: var(--ink-soft); }
+.shots { display: grid; grid-template-columns: 1.15fr 0.85fr; grid-template-rows: 240px 200px; gap: 14px; }
+.shots figure { margin: 0; overflow: hidden; background: var(--sand); }
+.shots img { width: 100%; height: 100%; object-fit: cover; }
+.shot-a { grid-row: 1 / span 2; height: 100%; }
+.shots figcaption { position: absolute; }
+.shots figure { position: relative; }
+.shots figcaption {
+  position: absolute; left: 10px; bottom: 10px; font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #f6f1e8; text-shadow: 0 1px 8px rgba(0,0,0,.45);
+}
+
+.orbit { position: relative; background: var(--paper); }
+.orbit-pin {
+  min-height: 100vh; height: 100vh; display: grid; grid-template-columns: minmax(280px, 0.7fr) 1.3fr;
+  gap: clamp(24px, 4vw, 56px); align-items: stretch; padding: calc(var(--nav) + 28px) var(--pad) 32px;
+}
+.orbit h2, .section-title {
+  font-family: var(--serif); font-weight: 460; letter-spacing: -0.035em;
+  font-size: clamp(42px, 5vw, 76px); line-height: 0.94;
+}
+.orbit-live { display: grid; gap: 12px; align-content: center; }
+.orbit-live h2 { min-height: 1.15em; }
+.meta { letter-spacing: 0.04em; font-size: 14px; text-transform: uppercase; color: var(--ink-soft); }
+.orbit-actions, .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.room-index { list-style: none; margin: 10px 0 0; padding: 0; }
+.room-index li { border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 15px; }
+.room-index li:last-child { border-bottom: 1px solid var(--line); }
+.room-index button {
+  display: grid; grid-template-columns: 32px 1fr; gap: 8px; align-items: baseline;
+  width: 100%; padding: 10px 0; border: 0; background: none; color: inherit;
+  font: inherit; text-align: left; cursor: pointer;
+}
+.room-index button:focus-visible { outline: 1px solid var(--wine); outline-offset: 2px; }
+.room-index span { font-size: 12px; letter-spacing: 0.12em; }
+.room-index li.is-on { color: var(--ink); }
+.room-index li.is-on span { color: var(--wine); }
+.orbit-stage { position: relative; min-height: 0; height: 100%; overflow: hidden; background: #cbbba6; }
+.room-dissolve { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 4; pointer-events: none; }
+.orbit-card { position: absolute; inset: 0; width: auto; margin: 0; opacity: 0; }
+.orbit-card:first-child { opacity: 1; }
+.orbit-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; background: var(--sand); }
+.orbit-card-copy { display: none; }
+.orbit-count { font-variant-numeric: tabular-nums; letter-spacing: 0.16em; font-size: 12px; }
+
+.comfort { background: var(--ivory); }
+.comfort-pin { min-height: 100vh; overflow: hidden; position: relative; }
+.comfort-track { display: flex; height: 100vh; align-items: stretch; will-change: transform; }
+.panel {
+  flex: 0 0 86vw; display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: 100vh;
+  border-right: 1px solid var(--line);
+}
+.panel-photo { min-height: 100%; overflow: hidden; background: var(--sand); }
+.panel-photo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); }
+.panel-copy { padding: 14vh 6vw 8vh; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; }
+.panel h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(36px, 4vw, 64px); line-height: 0.95; letter-spacing: -0.03em; }
+.panel p { max-width: 36ch; color: var(--ink-soft); }
+.panel.is-ink { background: #3a241c; color: #f6f1e8; }
+.panel.is-ink p { color: rgba(246,241,232,0.78); }
+.arrival-panel { display: flex; flex-direction: column; justify-content: flex-end; padding: 6vh 5vw 6vh; gap: 22px; }
+.arrival-art { display: grid; grid-template-columns: 1.2fr 0.82fr 0.9fr; gap: 18px; align-items: end; flex: 1; min-height: 0; }
+.arrival-art figure { margin: 0; background: #f4efe6; padding: 10px 10px 12px; box-shadow: 0 16px 36px rgba(0,0,0,0.28); }
+.arrival-art img { width: 100%; height: min(38vh, 340px); object-fit: cover; object-position: center; display: block; }
+.arrival-art figcaption { margin-top: 8px; color: #3a241c; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+.panel.is-ink .arrival-credit { margin: 0; max-width: none; font-size: 12px; letter-spacing: 0.02em; color: rgba(246,241,232,0.62); }
+.arrival-copy { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; }
+.arrival-copy .panel-copy { padding: 0; }
+.panel.is-sand { background: var(--sand); }
+.park-panel { position: relative; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-end; }
+.park-panel .panel-copy { position: relative; z-index: 1; width: min(420px, 46%); padding: 0 0 8vh 6vw; background: transparent; }
+.park-scene { position: absolute; inset: 5% 5% 20% 6%; display: grid; place-items: center; pointer-events: none; }
+.park-scene svg { width: min(860px, 100%); height: auto; overflow: visible; }
+.park-ground, .park-bay { fill: none; stroke: #6e2430; stroke-width: 3; stroke-linecap: square; opacity: 0.75; }
+.park-sign rect { fill: #6e2430; }
+.park-sign text { fill: #f6f1e8; font-family: var(--sans); font-size: 30px; font-weight: 600; text-anchor: middle; }
+.park-body { fill: #24170f; }
+.park-glass { fill: #f4efe6; }
+.park-wheel { fill: #3a241c; }
+.park-lamp { fill: #c4a574; }
+.park-car { transform-box: view-box; transform-origin: 0 0; animation: park-move 6.4s cubic-bezier(.42,.02,.2,1) infinite; }
+.park-rot { transform-box: fill-box; transform-origin: center; animation: park-turn 6.4s ease-in-out infinite; }
+@keyframes park-move {
+  0% { transform: translate(-150px, 366px); }
+  30% { transform: translate(180px, 366px); }
+  42% { transform: translate(315px, 348px); }
+  56% { transform: translate(315px, 186px); }
+  74% { transform: translate(315px, 186px); }
+  100% { transform: translate(-150px, 366px); }
+}
+@keyframes park-turn {
+  0%, 28% { transform: rotate(0deg); }
+  42% { transform: rotate(-75deg); }
+  56%, 74% { transform: rotate(-90deg); }
+  100% { transform: rotate(0deg); }
+}
+.comfort-arch {
+  position: absolute; right: 6vw; top: 12vh; width: 140px; height: 180px; pointer-events: none; opacity: 0.7;
+}
+.comfort-arch path { fill: none; stroke: var(--gold); stroke-width: 1.2; }
+
+.gallery-home { padding: 12vh var(--pad); }
+.gallery-head { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; margin-bottom: 28px; }
+.gallery-head h2 { max-width: 10ch; }
+.arrange {
+  display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-auto-rows: 220px; gap: 12px;
+}
+.arrange figure { margin: 0; overflow: hidden; position: relative; cursor: zoom-in; background: var(--sand); }
+.arrange img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.arrange figure:hover img { transform: scale(1.06); }
+.arrange .wide { grid-column: span 2; }
+.arrange .tall { grid-row: span 2; }
+@media (min-width: 981px) {
+  .shot-a { transform: translate3d(-28px, 18px, 0) rotate(-3.5deg); }
+  .shot-b { transform: translate3d(22px, -16px, 0) rotate(4deg); }
+  .shot-c { transform: translate3d(12px, 22px, 0) rotate(-2deg); }
+  .g1 { transform: translate3d(-40px, 24px, 0) rotate(-6deg); }
+  .g2 { transform: translate3d(30px, -20px, 0) rotate(5deg); }
+  .g3 { transform: translate3d(16px, 36px, 0) rotate(-3deg); }
+  .g4 { transform: translate3d(-24px, -12px, 0) rotate(4deg); }
+  .g5 { transform: translate3d(20px, 18px, 0) rotate(-4deg); }
+  .g6 { transform: translate3d(-10px, 28px, 0) rotate(3deg); }
+}
+.hero.is-lit .hero-copy, .hero.is-lit h1, .hero.is-lit .loc { color: #f6f1e8; }
+.hero.is-lit .lede { color: rgba(246, 241, 232, 0.84); }
+.comfort, .gallery-home, .voices { overflow: hidden; }
+.story-block figure { margin: 0; overflow: hidden; }
+.summary h3:focus { outline: none; }
+
+.jaipur { padding: 11vh var(--pad) 8vh; overflow: hidden; }
+.jaipur-head {
+  display: grid; grid-template-columns: 1.2fr minmax(220px, 34ch);
+  align-items: end; gap: 24px 40px; margin-bottom: 36px;
+}
+.jaipur h2 {
+  font-family: var(--serif); font-weight: 460; font-size: clamp(52px, 6.4vw, 96px);
+  line-height: 0.9; letter-spacing: -0.035em; margin-top: 8px;
+}
+.jaipur-note { color: var(--ink-soft); }
+.jaipur-stage { display: grid; grid-template-columns: minmax(240px, 0.42fr) 1.35fr; gap: clamp(20px, 3vw, 48px); align-items: start; }
+.places { display: flex; flex-direction: column; justify-content: space-between; align-self: stretch; margin: 0; padding: 0; list-style: none; }
+.places li {
+  display: grid; grid-template-columns: 42px 1fr; gap: 8px; align-items: baseline;
+  border-top: 1px solid var(--line); padding: 12px 0 11px; font-size: 17px;
+}
+.places li:last-child { border-bottom: 1px solid var(--line); }
+.places span { font-size: 12px; letter-spacing: 0.14em; color: var(--wine); }
+.jaipur-mosaic {
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: minmax(340px, 54vh) 230px; gap: 12px;
+}
+.mosaic-main { grid-column: 1 / -1; }
+.jaipur-mosaic figure { margin: 0; position: relative; overflow: hidden; background: #cbbba6; height: 100%; }
+.jaipur-mosaic img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+.jaipur-mosaic figcaption {
+  position: absolute; left: 0; bottom: 0; padding: 9px 14px;
+  background: rgba(36, 23, 15, 0.62); color: #f6f1e8;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.dest-note { margin-top: 22px; font-size: 13px; color: var(--ink-soft); max-width: 62ch; }
+
+.voices {
+  position: relative; z-index: 2; background: var(--ivory);
+  padding: 10vh var(--pad) 9vh; border-top: 1px solid var(--line);
+}
+.voices-head { max-width: 40rem; margin-bottom: 36px; padding: 0; }
+.voices-head h2 { margin: 10px 0; }
+.voice-track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 32px; width: auto; padding: 0; }
+.voice { width: auto; min-width: 0; background: transparent; border-top: 1px solid var(--ink); padding: 18px 0 0; }
+.voice q { font-family: var(--serif); font-size: clamp(18px, 1.45vw, 26px); line-height: 1.28; display: block; quotes: none; }
+.voice footer { margin-top: 18px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+
+.enquiry { padding: 12vh var(--pad) 10vh; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(24px, 5vw, 80px); align-items: start; }
+.enquiry h2 {
+  font-family: var(--serif); font-weight: 460; letter-spacing: -0.035em;
+  font-size: clamp(48px, 6vw, 92px); line-height: 0.9; margin: 12px 0 18px;
+}
+.enquiry-trip { display: block; background: radial-gradient(circle at 8% 0%, rgba(154, 117, 64, 0.16), transparent 32%), var(--ivory); }
+.ticket { display: grid; grid-template-columns: minmax(260px, 0.78fr) 1.22fr; background: #fffaf3; border: 1px solid var(--line); box-shadow: 0 22px 50px rgba(58, 36, 28, 0.08); }
+.ticket-stub { position: relative; padding: 36px 40px 36px 32px; background: #f4eadc; }
+.ticket-stub::after { content: ""; position: absolute; top: 18px; bottom: 18px; right: -11px; width: 22px; background: radial-gradient(circle, var(--ivory) 8px, transparent 9px); background-size: 22px 30px; }
+.ticket-main { padding: 32px 32px 28px 42px; }
+.enquiry-trip h2 { font-size: clamp(40px, 4.4vw, 64px); }
+.ticket-route { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
+.ticket-dash { flex: 1; height: 0; border-top: 2px dashed var(--gold); }
+.ticket-nights { font-family: var(--serif); font-size: 28px; margin: 0 0 12px; }
+.ticket-stamp { width: 112px; height: 112px; margin-top: 22px; border: 2px dashed var(--wine); border-radius: 50%; display: grid; place-items: center; text-align: center; color: var(--wine); letter-spacing: 0.12em; text-transform: uppercase; font-size: 13px; line-height: 1.25; transform: rotate(-8deg); }
+.step { display: flex; align-items: center; gap: 8px; }
+.step button { width: 40px; height: 40px; border: 1px solid var(--ink); background: transparent; cursor: pointer; font-size: 22px; line-height: 1; }
+.step button:hover { background: var(--ink); color: var(--ivory); }
+.step input { width: 72px; text-align: center; }
+.enquiry-trip input[type=number]::-webkit-outer-spin-button,
+.enquiry-trip input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.enquiry-trip input[type=number] { -moz-appearance: textfield; appearance: textfield; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 22px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.field input, .field select, .field textarea {
+  background: transparent; border: 0; border-bottom: 1px solid var(--line);
+  border-radius: 0; padding: 10px 0; min-height: 44px;
+}
+.field textarea { min-height: 90px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: var(--ink); }
+.err { min-height: 1.1em; color: var(--wine); font-size: 13px; }
+.form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.summary { display: none; border-top: 1px solid var(--ink); padding-top: 18px; }
+.summary.is-on { display: grid; gap: 14px; }
+.summary dl { display: grid; grid-template-columns: 160px 1fr; gap: 8px 16px; margin: 0; }
+.summary dt { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.summary dd { margin: 0; }
+.warn { font-size: 14px; color: var(--ink-soft); max-width: 52ch; }
+
+.footer { position: relative; z-index: 2; background: var(--ivory); padding: 7vh var(--pad) 28px; border-top: 1px solid var(--line); }
+.footer a { text-decoration: none; }
+.footer-crown { display: grid; grid-template-columns: 1.45fr 0.7fr; gap: clamp(28px, 5vw, 72px); align-items: end; }
+.footer-door { position: relative; min-width: 0; }
+.footer-arch { display: block; width: min(100%, 760px); height: auto; }
+.footer-arch path { fill: none; stroke: var(--gold); stroke-width: 1.35; stroke-linecap: round; }
+.footer-arch .wine { stroke: var(--wine); }
+.footer-name {
+  font-family: var(--serif); font-weight: 460; letter-spacing: -0.045em;
+  font-size: clamp(64px, 8vw, 128px); line-height: 0.82; margin: 8px 0 18px;
+}
+.footer-name span { display: block; padding-left: 14%; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.footer-nav a { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; }
+.footer-nav a:hover { color: var(--wine); }
+.footer-plate { border-left: 1px solid var(--gold); padding: 6px 0 8px 28px; display: grid; gap: 16px; }
+.footer-kicker { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--wine); }
+.footer-hours { color: var(--ink-soft); }
+.footer-social { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+.footer-close {
+  display: flex; justify-content: space-between; align-items: center; gap: 18px;
+  margin-top: 42px; padding-top: 18px; border-top: 1px solid var(--line);
+}
+.footer-close p { max-width: 42ch; color: var(--ink-soft); font-size: 15px; }
+.footer-legal { margin-top: 16px; font-size: 12px; color: var(--ink-soft); max-width: 68ch; }
+.fine { font-size: 13px; color: var(--ink-soft); max-width: 62ch; }
+
+.lightbox {
+  position: fixed; inset: 0; z-index: 80; background: rgba(24, 14, 10, 0.94);
+  display: none; align-items: center; justify-content: center; padding: 64px 70px;
+}
+.lightbox.is-on { display: flex; }
+.lightbox img { max-width: 100%; max-height: 78vh; object-fit: contain; }
+.lightbox p { position: absolute; left: 24px; right: 24px; bottom: 18px; text-align: center; color: #f6f1e8; font-size: 14px; }
+.lb-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border: 1px solid rgba(246,241,232,0.4);
+  background: transparent; color: #f6f1e8; cursor: pointer;
+}
+.lb-prev { left: 12px; }
+.lb-next { right: 12px; }
+.lb-x { top: 16px; right: 16px; transform: none; }
+
+.page-hero { min-height: 88vh; position: relative; display: flex; align-items: flex-end; color: #f6f1e8; background: #2a1c16; }
+.page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero .veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(24,14,10,.72), rgba(24,14,10,.12) 55%); }
+.page-hero .page-copy { position: relative; z-index: 1; padding: 18vh var(--pad) 8vh; max-width: 920px; }
+.page-hero h1 { font-family: var(--serif); font-weight: 460; font-size: clamp(56px, 8vw, 112px); line-height: 0.9; letter-spacing: -0.035em; margin: 10px 0 14px; }
+
+.stay { border-top: 1px solid var(--line); }
+.stay-hero { height: 100vh; position: relative; overflow: hidden; background: #1c1410; display: flex; align-items: flex-end; }
+.stay-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.stay-hero .veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,12,8,.7), transparent 50%); }
+.stay-caption { position: relative; z-index: 1; padding: 8vh var(--pad); color: #f6f1e8; }
+.stay-caption h2 { font-family: var(--serif); font-size: clamp(46px, 6vw, 88px); font-weight: 460; letter-spacing: -0.03em; line-height: 0.92; }
+.stay-grid { display: grid; grid-template-columns: 1fr 0.8fr; gap: 36px; padding: 8vh var(--pad); align-items: start; }
+.stay-copy { display: grid; gap: 16px; }
+.stay-copy p { color: var(--ink-soft); max-width: 62ch; }
+.amen { display: flex; flex-wrap: wrap; gap: 8px; }
+.amen li { border: 1px solid var(--line); padding: 6px 10px; font-size: 13px; letter-spacing: 0.04em; }
+.stay-side { display: grid; gap: 12px; }
+.stay-side img { width: 100%; height: 280px; object-fit: cover; }
+
+.masonry { columns: 3; column-gap: 12px; padding: 24px var(--pad) 10vh; }
+.masonry figure { margin: 0 0 12px; break-inside: avoid; position: relative; cursor: zoom-in; overflow: hidden; }
+.masonry img { width: 100%; height: auto; transition: transform .6s ease; }
+.masonry figure:hover img { transform: scale(1.04); }
+.ring-wrap { height: 100vh; position: relative; overflow: hidden; background: #2a1c16; color: #f6f1e8; }
+.ring-stage { position: absolute; inset: 0; perspective: 1400px; display: grid; place-items: center; }
+.ring { position: relative; width: 70vmin; height: 70vmin; transform-style: preserve-3d; }
+.ring figure {
+  position: absolute; left: 50%; top: 50%; width: 210px; height: 270px; margin: -135px 0 0 -105px; overflow: hidden;
+}
+.ring img { width: 100%; height: 100%; object-fit: cover; }
+.ring-label { position: absolute; left: var(--pad); bottom: 8vh; z-index: 2; max-width: 360px; }
+.ring-label h1 { font-family: var(--serif); font-weight: 460; font-size: clamp(48px, 6vw, 84px); line-height: 0.9; letter-spacing: -0.03em; }
+
+.about-wrap { padding: 14vh var(--pad) 8vh; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: end; }
+.about-wrap h1 { font-family: var(--serif); font-weight: 460; font-size: clamp(56px, 7vw, 108px); line-height: 0.88; letter-spacing: -0.04em; }
+.story-block { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 4vh var(--pad) 8vh; align-items: center; }
+.story-block.reverse { direction: rtl; }
+.story-block.reverse > * { direction: ltr; }
+.story-block img { width: 100%; height: min(72vh, 680px); object-fit: cover; }
+.story-block h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4vw, 54px); line-height: 1; letter-spacing: -0.03em; margin-bottom: 14px; }
+.story-block p + p { margin-top: 14px; }
+.story-block p { color: var(--ink-soft); }
+.pull {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 42px); line-height: 1.2; color: var(--ink);
+  padding: 6vh var(--pad); max-width: 18em;
+}
+.policy { padding: 0 var(--pad) 10vh; display: grid; gap: 0; }
+.policy details { border-top: 1px solid var(--line); padding: 16px 0; }
+.policy summary { cursor: pointer; font-size: 18px; letter-spacing: 0.02em; }
+.policy details p, .policy li { color: var(--ink-soft); margin-top: 8px; }
+.policy ul { padding-left: 18px; list-style: disc; }
+
+.contact-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px; padding: 14vh var(--pad) 6vh; }
+.contact-grid h1 { font-family: var(--serif); font-weight: 460; font-size: clamp(52px, 7vw, 96px); line-height: 0.9; letter-spacing: -0.035em; margin: 8px 0 16px; }
+.contact-side { display: grid; gap: 16px; align-content: start; }
+.map-wrap { padding: 0 var(--pad) 8vh; }
+.map-wrap iframe { width: 100%; height: 460px; border: 0; filter: saturate(0.8) contrast(1.05); }
+.tabs { display: flex; gap: 18px; margin-bottom: 18px; }
+.tabs button { background: none; border: 0; padding: 0 0 6px; cursor: pointer; letter-spacing: 0.14em; text-transform: uppercase; font-size: 12px; border-bottom: 1px solid transparent; }
+.tabs button[aria-selected="true"] { border-bottom-color: var(--ink); }
+
+@media (max-width: 980px) {
+  .nav-links, .nav .nav-book { display: none; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  a.float-book { display: inline-flex; }
+  .hero-sticky { height: auto; min-height: 100dvh; overflow: visible; padding-bottom: 108px; }
+  .staybar { flex-wrap: wrap; border-radius: 14px; padding: 12px; }
+  .staybar-place, .staybar-occ { flex: 1 1 42%; }
+  .staybar-dates { flex: 1 1 100%; }
+  .staybar-go { flex: 1 1 100%; margin: 8px 0 0; }
+  .portal { width: min(300px, 78vw); height: min(300px, 38dvh); }
+  .jali-panel { display: none; }
+  body { padding-bottom: 76px; }
+  .remember-pin, .orbit-pin, .jaipur, .enquiry, .footer-grid, .stay-grid, .about-wrap, .story-block, .contact-grid, .panel {
+    grid-template-columns: 1fr;
+  }
+  .story-block.reverse { direction: ltr; }
+  .shots { grid-template-rows: 220px 180px; }
+  .orbit-pin { display: block; padding-top: 12vh; }
+  .orbit-live { display: none; }
+  .orbit-stage { height: auto; display: grid; gap: 28px; }
+  .orbit-card { position: relative; left: auto; top: auto; width: auto; margin: 0; opacity: 1; }
+  .orbit-card img { height: 64vw; min-height: 240px; }
+  .orbit-card-copy { display: grid; gap: 10px; padding-top: 12px; }
+  .room-index { display: none; }
+  .room-dissolve { display: none; }
+  .comfort-track { display: block; height: auto; }
+  .panel { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .arrival-art { grid-template-columns: 1fr 1fr 1fr; }
+  .arrival-art figure, .arrival-art figure:nth-child(2), .arrival-art figure:nth-child(3) { transform: none; }
+  .arrival-art img { height: 34vw; }
+  .arrival-copy { grid-template-columns: 1fr; }
+  .panel-photo { height: 58vw; min-height: 220px; }
+  .panel-copy { padding: 24px var(--pad) 32px; }
+  .park-scene { position: relative; inset: auto; height: auto; margin: 28px var(--pad) 0; }
+  .park-panel .panel-copy { width: auto; padding: 24px var(--pad) 32px; }
+  .comfort-arch { display: none; }
+  .arrange { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+  .arrange .wide, .arrange .tall { grid-column: auto; grid-row: auto; }
+  .jaipur-head, .jaipur-stage { grid-template-columns: 1fr; }
+  .jaipur-mosaic { order: -1; grid-template-rows: 42vh 180px; }
+  .voice-track { grid-template-columns: 1fr 1fr; }
+  .form, .summary dl { grid-template-columns: 1fr; }
+  .ticket { grid-template-columns: 1fr; }
+  .ticket-stub::after { top: auto; right: 18px; bottom: -11px; left: 18px; width: auto; height: 22px; background-size: 30px 22px; }
+  .ticket-main { padding: 36px 22px 24px; }
+  .masonry { columns: 2; }
+  .ring-wrap { height: auto; min-height: 70vh; }
+  .ring { width: 100%; height: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 18vh var(--pad) 18vh; }
+  .ring figure { position: relative; left: auto; top: auto; width: auto; height: 180px; margin: 0; }
+  .page-hero { min-height: 72vh; }
+  .stay-hero { height: 72vh; }
+  .stay-side img { height: 220px; }
+  .footer-crown { grid-template-columns: 1fr; }
+  .footer-plate { border-left: 0; border-top: 1px solid var(--gold); padding: 20px 0 0; }
+  .footer-name span { padding-left: 0; }
+  .footer-close { align-items: flex-start; flex-direction: column; }
+  .footer { padding-bottom: 108px; }
+}
+@media (max-width: 640px) {
+  .hero h1 span + span { padding-left: 0; }
+  .shots { grid-template-columns: 1fr; grid-template-rows: none; }
+  .shot-a { grid-row: auto; height: 280px; }
+  .shots figure { height: 220px; }
+  .arrange { grid-template-columns: 1fr; }
+  .jaipur-mosaic { grid-template-rows: 36vh auto; grid-template-columns: 1fr; }
+  .jaipur-mosaic figure:not(.mosaic-main) { height: 200px; }
+  .voice-track { grid-template-columns: 1fr; }
+  .masonry { columns: 1; }
+  .map-wrap iframe { height: 300px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .park-car, .park-rot { animation: none; }
+  .park-car { transform: translate(315px, 186px); }
+  .park-rot { transform: rotate(-90deg); }
+  .curtain, .menu, .arrange img, .masonry img { transition: none; }
+  .shot-a, .shot-b, .shot-c, .g1, .g2, .g3, .g4, .g5, .g6 { transform: none; }
+}
+
+</style>
+</head>
+<body data-solid="always">
+<a class="skip" href="#content">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<div class="curtain" aria-hidden="true"></div>
+<header class="nav">
+  <a class="brand" data-internal href="index.html"><b>Govindam</b><small>Royal Stay</small></a>
+  <nav class="nav-links" aria-label="Primary"><a data-internal href="index.html">Home</a><a data-internal href="rooms.html">Rooms</a><a data-internal href="gallery.html">Gallery</a><a data-internal href="about.html">About</a><a data-internal href="contact.html" aria-current="page">Contact</a></nav>
+  <a class="nav-book btn btn-fill" href="https://govindamroyalstay.pripgo.com/">Book your stay</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu"><span></span><span class="sr">Menu</span></button>
+</header>
+<div class="menu" id="menu"><a data-internal href="index.html">Home</a><a data-internal href="rooms.html">Rooms</a><a data-internal href="gallery.html">Gallery</a><a data-internal href="about.html">About</a><a data-internal href="contact.html">Contact</a><a href="https://govindamroyalstay.pripgo.com/">Book your stay</a></div>
+<a class="float-book btn btn-fill" href="https://govindamroyalstay.pripgo.com/">Book your stay</a>
+<main id="content">
+<section class="contact-grid">
+  <div class="contact-side">
+    <p class="eyebrow">Contact</p>
+    <h1>Write, call, or continue to book.</h1>
+    <p>76-B, Talkatora Colony,<br>J.D.A. Market, Brahampuri,<br>Jaipur, Rajasthan</p>
+    <p><a href="tel:+919829057118">+91 98290 57118</a><br><a href="mailto:govindamroyalstay@gmail.com">govindamroyalstay@gmail.com</a></p>
+    <p class="fine">Check-in 12:00 PM · Check-out 10:00 AM</p>
+    <div class="cta-row">
+      <a class="btn btn-fill" href="tel:+919829057118">Call now</a>
+      <a class="btn btn-line" href="https://wa.me/919829057118">WhatsApp</a>
+      <a class="btn btn-line" href="https://govindamroyalstay.pripgo.com/">Continue to Booking</a>
+    </div>
+  </div>
+  <div data-tabs>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-book" aria-selected="true" aria-controls="panel-book">Booking enquiry</button>
+      <button type="button" role="tab" id="tab-note" aria-selected="false" aria-controls="panel-note">Contact note</button>
+    </div>
+    <div id="panel-book">
+      <form class="form enquiry-form" novalidate>
+        <div class="field"><label for="b-checkin">Check-in</label><input id="b-checkin" name="checkin" type="date" required><span class="err"></span></div>
+        <div class="field"><label for="b-checkout">Check-out</label><input id="b-checkout" name="checkout" type="date" required><span class="err"></span></div>
+        <div class="field"><label for="b-guests">Guests</label><input id="b-guests" name="guests" type="number" min="1" max="24" value="2" required><span class="err"></span></div>
+        <div class="field"><label for="b-rooms">Rooms</label><input id="b-rooms" name="rooms" type="number" min="1" max="16" value="1" required><span class="err"></span></div>
+        <div class="field"><label for="b-guest">Guest name</label><input id="b-guest" name="guest" type="text" required autocomplete="name"><span class="err"></span></div>
+        <div class="field"><label for="b-mobile">Mobile number</label><input id="b-mobile" name="mobile" type="tel" required autocomplete="tel"><span class="err"></span></div>
+        <div class="field full"><label for="b-email">Email address</label><input id="b-email" name="email" type="email" required autocomplete="email"><span class="err"></span></div>
+        <div class="field full"><label for="b-requests">Special requests</label><textarea id="b-requests" name="requests"></textarea><span class="err"></span></div>
+        <div class="form-actions"><button class="btn btn-fill" type="submit">Enquire about your stay</button></div>
+      </form>
+      <div class="summary">
+        <h3 tabindex="-1">Review your enquiry</h3>
+        <p class="warn">This summary stays on this page so you can check it. Continue to Booking opens the reservation site. A stay is not confirmed here.</p>
+        <dl></dl>
+        <div class="cta-row">
+          <button class="btn btn-line" type="button" data-edit>Edit details</button>
+          <a class="btn btn-fill" data-book href="https://govindamroyalstay.pripgo.com/">Continue to Booking</a>
+        </div>
+      </div>
+    </div>
+    <div id="panel-note" hidden>
+      <form class="form contact-form" novalidate>
+        <div class="field"><label for="c-guest">Name</label><input id="c-guest" name="guest" type="text" required autocomplete="name"><span class="err"></span></div>
+        <div class="field"><label for="c-mobile">Mobile number</label><input id="c-mobile" name="mobile" type="tel" required autocomplete="tel"><span class="err"></span></div>
+        <div class="field full"><label for="c-email">Email address</label><input id="c-email" name="email" type="email" required autocomplete="email"><span class="err"></span></div>
+        <div class="field full"><label for="c-message">Message</label><textarea id="c-message" name="message" required></textarea><span class="err"></span></div>
+        <div class="form-actions"><button class="btn btn-fill" type="submit">Review message</button></div>
+      </form>
+      <div class="summary">
+        <h3 tabindex="-1">Review your note</h3>
+        <p class="warn">This page does not deliver the note by itself. Send it with your email app, or call the property.</p>
+        <dl></dl>
+        <div class="cta-row">
+          <button class="btn btn-line" type="button" data-edit>Edit details</button>
+          <a class="btn btn-fill" data-mail href="mailto:govindamroyalstay@gmail.com">Send by email</a>
+          <a class="btn btn-line" href="tel:+919829057118">Call now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="map-wrap">
+  <iframe title="Map of Govindam Royal Stay at Talkatora Colony, Jaipur" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=26.9326471,75.8264964&amp;z=16&amp;hl=en&amp;output=embed"></iframe>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="footer-crown">
+    <div class="footer-door">
+      <svg class="footer-arch" viewBox="0 0 760 170" aria-hidden="true">
+        <path d="M18 170 V78 C18 18 742 18 742 78 V170"/>
+        <path class="wine" d="M78 170 V96 C78 48 682 48 682 96 V170"/>
+        <path d="M250 78 C290 46 350 46 380 78 C410 46 470 46 510 78"/>
+      </svg>
+      <p class="footer-name">Govindam<span>Royal Stay</span></p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a data-internal href="index.html">Home</a>
+        <a data-internal href="rooms.html">Rooms</a>
+        <a data-internal href="gallery.html">Gallery</a>
+        <a data-internal href="about.html">About</a>
+        <a data-internal href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <aside class="footer-plate">
+      <p class="footer-kicker">The house</p>
+      <p>76-B, Talkatora Colony<br>J.D.A. Market, Brahampuri<br>Jaipur, Rajasthan</p>
+      <p><a href="tel:+919829057118">+91 98290 57118</a><br><a href="mailto:govindamroyalstay@gmail.com">govindamroyalstay@gmail.com</a></p>
+      <p class="footer-hours">Arrivals 12:00 PM<br>Departures 10:00 AM<br>Sixteen rooms</p>
+      <p class="footer-social"><a href="https://www.instagram.com/govindamroyalstay/">Instagram</a><a href="https://g.page/r/CeTVBOozsCTvEAI/review">Google reviews</a></p>
+    </aside>
+  </div>
+  <div class="footer-close">
+    <p>Availability and rates are confirmed on the reservation page. A stay is not booked here.</p>
+    <a class="btn btn-fill" href="https://govindamroyalstay.pripgo.com/">Book your stay</a>
+  </div>
+  <p class="footer-legal">© 2026 Govindam Royal Stay. Jaipur landmark photographs are from Wikimedia Commons and are not pictures of the hotel.</p>
+</footer>
+<div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Photograph">
+  <button class="lb-btn lb-x" type="button">Close</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous photograph">‹</button>
+  <img alt="">
+  <button class="lb-btn lb-next" type="button" aria-label="Next photograph">›</button>
+  <p></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function () {
+  const BOOK = "https://govindamroyalstay.pripgo.com/";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.body.classList.add("is-ready");
+
+  const nav = document.querySelector(".nav");
+  const toggle = document.querySelector(".nav-toggle");
+  const menu = document.querySelector(".menu");
+  const progress = document.querySelector(".progress");
+
+  function setMenu(open) {
+    if (!menu || !toggle) return;
+    menu.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      setMenu(!menu.classList.contains("is-open"));
+    });
+    menu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      setMenu(false);
+      closeLight();
+    }
+  });
+
+  const solidAt = document.body.dataset.solid === "always" ? 0 : 40;
+  function onScroll() {
+    if (!nav) return;
+    const y = window.scrollY || 0;
+    if (document.body.dataset.solid === "always") nav.classList.add("is-solid");
+    else nav.classList.toggle("is-solid", y > solidAt && !nav.classList.contains("is-light"));
+    if (progress && reduce) progress.style.transform = "scaleX(" + Math.min(1, y / (document.body.scrollHeight - window.innerHeight || 1)) + ")";
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  document.querySelectorAll("a[data-internal]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      if (url.pathname === location.pathname && url.hash) return;
+      if (reduce) return;
+      e.preventDefault();
+      document.body.classList.remove("is-ready");
+      document.body.classList.add("is-leaving");
+      window.setTimeout(function () { location.href = a.href; }, 420);
+    });
+  });
+
+  const lb = document.querySelector(".lightbox");
+  const lbImg = lb ? lb.querySelector("img") : null;
+  const lbCap = lb ? lb.querySelector("p") : null;
+  let lbItems = [];
+  let lbIndex = 0;
+  function openLight(items, index) {
+    if (!lb) return;
+    lbItems = items;
+    lbIndex = index;
+    paintLight();
+    lb.classList.add("is-on");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function paintLight() {
+    const item = lbItems[lbIndex];
+    if (!item) return;
+    lbImg.src = item.src;
+    lbImg.alt = item.alt || "";
+    lbCap.textContent = item.cap || item.alt || "";
+  }
+  function closeLight() {
+    if (!lb || !lb.classList.contains("is-on")) return;
+    lb.classList.remove("is-on");
+    lb.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+  }
+  function step(dir) {
+    if (!lbItems.length) return;
+    lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
+    paintLight();
+  }
+  if (lb) {
+    lb.querySelector(".lb-x").addEventListener("click", closeLight);
+    lb.querySelector(".lb-prev").addEventListener("click", function () { step(-1); });
+    lb.querySelector(".lb-next").addEventListener("click", function () { step(1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb) closeLight(); });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("is-on")) return;
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    });
+  }
+  document.querySelectorAll("[data-gallery]").forEach(function (group) {
+    const figs = Array.prototype.slice.call(group.querySelectorAll("figure"));
+    const items = figs.map(function (fig) {
+      const img = fig.querySelector("img");
+      return { src: img.currentSrc || img.src, alt: img.alt, cap: fig.getAttribute("data-cap") || img.alt };
+    });
+    figs.forEach(function (fig, i) {
+      fig.tabIndex = 0;
+      fig.setAttribute("role", "button");
+      function open() { openLight(items, i); }
+      fig.addEventListener("click", open);
+      fig.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+      });
+    });
+  });
+
+  function fieldError(input, message) {
+    const slot = input.closest(".field").querySelector(".err");
+    input.setAttribute("aria-invalid", message ? "true" : "false");
+    if (slot) slot.textContent = message || "";
+    return !message;
+  }
+  function bindEnquiry(form) {
+    if (!form) return;
+    const summary = form.parentElement.querySelector(".summary");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = {
+        checkin: form.checkin.value,
+        checkout: form.checkout.value,
+        guests: form.guests.value.trim(),
+        rooms: form.rooms.value.trim(),
+        name: form.guest.value.trim(),
+        mobile: form.mobile.value.trim(),
+        email: form.email.value.trim(),
+        requests: form.requests.value.trim()
+      };
+      let ok = true;
+      ok = fieldError(form.checkin, data.checkin ? "" : "Choose a check-in date.") && ok;
+      ok = fieldError(form.checkout, data.checkout ? "" : "Choose a check-out date.") && ok;
+      if (data.checkin && data.checkout && data.checkout <= data.checkin) {
+        ok = fieldError(form.checkout, "Check-out must be after check-in.") && false;
+      }
+      const guests = Number(data.guests);
+      const rooms = Number(data.rooms);
+      ok = fieldError(form.guests, guests >= 1 && guests <= 24 ? "" : "Enter 1 to 24 guests.") && ok;
+      ok = fieldError(form.rooms, rooms >= 1 && rooms <= 16 ? "" : "Enter 1 to 16 rooms.") && ok;
+      ok = fieldError(form.guest, data.name.length >= 2 ? "" : "Enter the guest name.") && ok;
+      ok = fieldError(form.mobile, /^(\+91[\s-]?)?[6-9]\d{9}$/.test(data.mobile.replace(/\s/g, "")) ? "" : "Enter a valid mobile number.") && ok;
+      ok = fieldError(form.email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ? "" : "Enter a valid email address.") && ok;
+      if (!ok) return;
+      const rows = [
+        ["Check-in", data.checkin],
+        ["Check-out", data.checkout],
+        ["Guests", data.guests],
+        ["Rooms", data.rooms],
+        ["Name", data.name],
+        ["Mobile", data.mobile],
+        ["Email", data.email],
+        ["Requests", data.requests || "None"]
+      ];
+      const dl = summary.querySelector("dl");
+      dl.innerHTML = "";
+      rows.forEach(function (row) {
+        const dt = document.createElement("dt");
+        const dd = document.createElement("dd");
+        dt.textContent = row[0];
+        dd.textContent = row[1];
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      });
+      form.hidden = true;
+      summary.classList.add("is-on");
+      summary.querySelector("h3").focus();
+    });
+    const back = summary.querySelector("[data-edit]");
+    if (back) back.addEventListener("click", function () {
+      summary.classList.remove("is-on");
+      form.hidden = false;
+      form.guest.focus();
+    });
+    const go = summary.querySelector("[data-book]");
+    if (go) go.href = BOOK;
+  }
+  document.querySelectorAll("form.enquiry-form").forEach(bindEnquiry);
+
+  document.querySelectorAll("form.contact-form").forEach(function (form) {
+    const summary = form.parentElement.querySelector(".summary");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = {
+        name: form.guest.value.trim(),
+        mobile: form.mobile.value.trim(),
+        email: form.email.value.trim(),
+        message: form.message.value.trim()
+      };
+      let ok = true;
+      ok = fieldError(form.guest, data.name.length >= 2 ? "" : "Enter your name.") && ok;
+      ok = fieldError(form.mobile, /^(\+91[\s-]?)?[6-9]\d{9}$/.test(data.mobile.replace(/\s/g, "")) ? "" : "Enter a valid mobile number.") && ok;
+      ok = fieldError(form.email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ? "" : "Enter a valid email address.") && ok;
+      ok = fieldError(form.message, data.message.length >= 8 ? "" : "Write a short message.") && ok;
+      if (!ok) return;
+      const dl = summary.querySelector("dl");
+      dl.innerHTML = "";
+      [["Name", data.name], ["Mobile", data.mobile], ["Email", data.email], ["Message", data.message]].forEach(function (row) {
+        const dt = document.createElement("dt");
+        const dd = document.createElement("dd");
+        dt.textContent = row[0];
+        dd.textContent = row[1];
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      });
+      const mail = summary.querySelector("[data-mail]");
+      const subject = encodeURIComponent("Enquiry for Govindam Royal Stay");
+      const body = encodeURIComponent("Name: " + data.name + "\nMobile: " + data.mobile + "\nEmail: " + data.email + "\n\n" + data.message);
+      mail.href = "mailto:govindamroyalstay@gmail.com?subject=" + subject + "&body=" + body;
+      form.hidden = true;
+      summary.classList.add("is-on");
+      summary.querySelector("h3").focus();
+    });
+    summary.querySelector("[data-edit]").addEventListener("click", function () {
+      summary.classList.remove("is-on");
+      form.hidden = false;
+    });
+  });
+
+  const today = new Date();
+  const iso = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  document.querySelectorAll("input[type=date]").forEach(function (input) {
+    if (!input.min) input.min = iso;
+  });
+  document.querySelectorAll("form.enquiry-form").forEach(function (form) {
+    const nights = form.closest(".ticket") && form.closest(".ticket").querySelector(".ticket-nights");
+    function nextIso(value) {
+      const parts = value.split("-");
+      const d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]) + 1);
+      return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    }
+    function syncNights() {
+      if (form.checkin.value) {
+        form.checkout.min = nextIso(form.checkin.value);
+        if (form.checkout.value && form.checkout.value <= form.checkin.value) form.checkout.value = form.checkout.min;
+      }
+      if (!nights) return;
+      if (!form.checkin.value || !form.checkout.value) { nights.textContent = "Pick your dates"; return; }
+      const stay = Math.round((new Date(form.checkout.value) - new Date(form.checkin.value)) / 86400000);
+      nights.textContent = stay > 0 ? stay + (stay === 1 ? " night in Jaipur" : " nights in Jaipur") : "Check-out comes after check-in";
+    }
+    form.checkin.addEventListener("change", syncNights);
+    form.checkout.addEventListener("change", syncNights);
+  });
+  const staybar = document.querySelector("#staybar");
+  if (staybar) {
+    const inn = staybar.checkin;
+    const out = staybar.checkout;
+    const rooms = staybar.rooms;
+    const guests = staybar.guests;
+    const nightsEl = document.getElementById("h-nights");
+    const inBtn = document.getElementById("h-checkin-btn");
+    const outBtn = document.getElementById("h-checkout-btn");
+    const inLabel = document.getElementById("h-checkin-label");
+    const outLabel = document.getElementById("h-checkout-label");
+    const cal = document.getElementById("stay-cal");
+    const calLabel = cal.querySelector("[data-cal=label]");
+    const calGrid = cal.querySelector("[data-cal=grid]");
+    const calHint = cal.querySelector("[data-cal=hint]");
+    const calPrev = cal.querySelector("[data-cal=prev]");
+    const calNext = cal.querySelector("[data-cal=next]");
+    const occLabel = document.getElementById("occ-label");
+    const occBtn = staybar.querySelector(".staybar-occ-btn");
+    const occPanel = document.getElementById("occ-panel");
+    const error = staybar.querySelector(".staybar-error");
+    const ticket = document.querySelector(".enquiry-form");
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    function startOfDay(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+    function addDays(d, n) { return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n); }
+    let checkIn = startOfDay(new Date());
+    let checkOut = addDays(checkIn, 1);
+    let view = new Date(checkIn.getFullYear(), checkIn.getMonth(), 1);
+    let mode = "";
+    let hoverTime = 0;
+    function iso(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+    function pretty(d) { return d.getDate() + " " + shortMonths[d.getMonth()] + ", " + d.getFullYear(); }
+    function nightCount(a, b) { return Math.round((startOfDay(b) - startOfDay(a)) / 86400000); }
+    function previewEnd() {
+      if (mode === "out" && hoverTime > checkIn.getTime()) return new Date(hoverTime);
+      return checkOut;
+    }
+    function syncOcc() {
+      const roomCount = Number(rooms.value || 1);
+      const guestCount = Number(guests.value || 1);
+      occLabel.textContent = roomCount + (roomCount === 1 ? " Room, " : " Rooms, ") + guestCount + (guestCount === 1 ? " Guest" : " Guest(s)");
+    }
+    function commit() {
+      inn.value = iso(checkIn);
+      out.value = iso(checkOut);
+      inLabel.textContent = pretty(checkIn);
+      outLabel.textContent = pretty(checkOut);
+      const stay = nightCount(checkIn, previewEnd());
+      nightsEl.textContent = String(stay);
+      nightsEl.setAttribute("aria-label", stay + (stay === 1 ? " night" : " nights"));
+      error.textContent = "";
+      syncOcc();
+      if (ticket) {
+        ticket.checkin.value = inn.value;
+        ticket.checkout.value = out.value;
+        ticket.rooms.value = rooms.value;
+        ticket.guests.value = guests.value;
+        ticket.checkin.dispatchEvent(new Event("change"));
+      }
+    }
+    function paintDays() {
+      const start = checkIn.getTime();
+      const end = previewEnd().getTime();
+      calGrid.querySelectorAll(".cal-day").forEach(function (btn) {
+        const t = Number(btn.dataset.t);
+        btn.classList.toggle("is-in", t === start);
+        btn.classList.toggle("is-out", t === end);
+        btn.classList.toggle("is-range", t > start && t < end);
+        btn.setAttribute("aria-pressed", t === start || t === end ? "true" : "false");
+      });
+      const endDate = new Date(end);
+      const stay = nightCount(checkIn, endDate);
+      nightsEl.textContent = String(stay);
+      nightsEl.setAttribute("aria-label", stay + (stay === 1 ? " night" : " nights"));
+      outLabel.textContent = pretty(mode === "out" && hoverTime > checkIn.getTime() ? endDate : checkOut);
+    }
+    function renderMonth() {
+      const today = startOfDay(new Date());
+      calLabel.textContent = monthNames[view.getMonth()] + " " + view.getFullYear();
+      calPrev.disabled = view.getFullYear() === today.getFullYear() && view.getMonth() === today.getMonth();
+      calHint.textContent = mode === "out" ? "Select a check-out date" : "Select a check-in date";
+      calGrid.replaceChildren();
+      const year = view.getFullYear();
+      const month = view.getMonth();
+      const pad = new Date(year, month, 1).getDay();
+      const count = new Date(year, month + 1, 0).getDate();
+      for (let i = 0; i < pad; i++) calGrid.appendChild(document.createElement("span"));
+      for (let day = 1; day <= count; day++) {
+        const date = new Date(year, month, day);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "cal-day";
+        btn.textContent = String(day);
+        btn.dataset.t = String(date.getTime());
+        btn.disabled = date < today;
+        if (date.getTime() === today.getTime()) btn.classList.add("is-today");
+        btn.setAttribute("aria-label", pretty(date));
+        calGrid.appendChild(btn);
+      }
+      paintDays();
+      placeCal();
+    }
+    function placeCal() {
+      const anchor = (mode === "out" ? outBtn : inBtn).getBoundingClientRect();
+      const host = staybar.getBoundingClientRect();
+      const width = cal.offsetWidth || 332;
+      let left = anchor.left - host.left;
+      const maxLeft = Math.max(0, host.width - width - 8);
+      if (left > maxLeft) left = maxLeft;
+      if (left < 8) left = 8;
+      cal.style.left = left + "px";
+    }
+    function setMode(next) {
+      mode = next;
+      inBtn.classList.toggle("is-on", next === "in");
+      outBtn.classList.toggle("is-on", next === "out");
+      inBtn.setAttribute("aria-expanded", next === "in" ? "true" : "false");
+      outBtn.setAttribute("aria-expanded", next === "out" ? "true" : "false");
+    }
+    function closeCal() {
+      if (cal.hidden) return;
+      cal.hidden = true;
+      hoverTime = 0;
+      setMode("");
+      commit();
+    }
+    function openCal(next) {
+      occPanel.hidden = true;
+      occBtn.setAttribute("aria-expanded", "false");
+      if (!cal.hidden && mode === next) { closeCal(); return; }
+      hoverTime = 0;
+      setMode(next);
+      const focus = next === "out" ? checkOut : checkIn;
+      view = new Date(focus.getFullYear(), focus.getMonth(), 1);
+      cal.hidden = false;
+      renderMonth();
+      const current = calGrid.querySelector(next === "out" ? ".is-out" : ".is-in");
+      if (current) current.focus();
+    }
+    function shiftMonth(step) {
+      const today = startOfDay(new Date());
+      const next = new Date(view.getFullYear(), view.getMonth() + step, 1);
+      if (next.getFullYear() < today.getFullYear() || (next.getFullYear() === today.getFullYear() && next.getMonth() < today.getMonth())) return;
+      view = next;
+      renderMonth();
+    }
+    calPrev.addEventListener("click", function () { shiftMonth(-1); });
+    calNext.addEventListener("click", function () { shiftMonth(1); });
+    calGrid.addEventListener("click", function (event) {
+      const btn = event.target.closest(".cal-day");
+      if (!btn || btn.disabled) return;
+      event.stopPropagation();
+      const date = new Date(Number(btn.dataset.t));
+      if (mode === "out" && date > checkIn) {
+        checkOut = date;
+        hoverTime = 0;
+        commit();
+        closeCal();
+        return;
+      }
+      checkIn = date;
+      if (!(checkOut > checkIn)) checkOut = addDays(checkIn, 1);
+      hoverTime = 0;
+      setMode("out");
+      commit();
+      renderMonth();
+    });
+    calGrid.addEventListener("mouseover", function (event) {
+      const btn = event.target.closest(".cal-day");
+      if (!btn || mode !== "out" || btn.disabled) return;
+      const t = Number(btn.dataset.t);
+      if (t === hoverTime) return;
+      hoverTime = t;
+      paintDays();
+    });
+    calGrid.addEventListener("mouseleave", function () {
+      if (!hoverTime) return;
+      hoverTime = 0;
+      paintDays();
+    });
+    cal.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        const back = mode === "out" ? outBtn : inBtn;
+        closeCal();
+        back.focus();
+        return;
+      }
+      const days = Array.prototype.slice.call(calGrid.querySelectorAll(".cal-day:not(:disabled)"));
+      const index = days.indexOf(document.activeElement);
+      if (index < 0) return;
+      let next = index;
+      if (event.key === "ArrowRight") next = index + 1;
+      else if (event.key === "ArrowLeft") next = index - 1;
+      else if (event.key === "ArrowDown") next = index + 7;
+      else if (event.key === "ArrowUp") next = index - 7;
+      else return;
+      if (!days[next]) return;
+      event.preventDefault();
+      days[next].focus();
+    });
+    inBtn.addEventListener("click", function () { openCal("in"); });
+    outBtn.addEventListener("click", function () { openCal("out"); });
+    commit();
+    rooms.addEventListener("input", commit);
+    guests.addEventListener("input", commit);
+    occBtn.addEventListener("click", function () {
+      closeCal();
+      const open = occPanel.hidden;
+      occPanel.hidden = !open;
+      occBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", function (event) {
+      if (staybar.contains(event.target)) return;
+      occPanel.hidden = true;
+      occBtn.setAttribute("aria-expanded", "false");
+      closeCal();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !cal.hidden) closeCal();
+    });
+    window.addEventListener("resize", function () { if (!cal.hidden) placeCal(); });
+    staybar.addEventListener("submit", function (event) {
+      event.preventDefault();
+      closeCal();
+      const stay = nightCount(checkIn, checkOut);
+      if (stay < 1) { error.textContent = "Check-out must be after check-in."; return; }
+      error.textContent = "";
+      window.location.href = "https://govindamroyalstay.pripgo.com/";
+    });
+  }
+  document.querySelectorAll(".step button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const input = btn.parentElement.querySelector("input");
+      const next = Math.min(Number(input.max || 99), Math.max(Number(input.min || 0), Number(input.value || 0) + Number(btn.dataset.dir)));
+      input.value = String(next);
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+  });
+  document.querySelectorAll("[data-tabs]").forEach(function (wrap) {
+    const buttons = wrap.querySelectorAll("[role=tab]");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        buttons.forEach(function (b) {
+          const on = b === btn;
+          b.setAttribute("aria-selected", on ? "true" : "false");
+          document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
+        });
+      });
+    });
+  });
+
+  window.GRS = { reduce: reduce, book: BOOK, nav: nav };
+})();
+
+</script>
+<script>
+(function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gsap.registerPlugin(ScrollTrigger);
+  const fine = window.matchMedia("(pointer: fine)").matches;
+  if (!reduce && fine && window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.085, smoothWheel: true });
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+  if (reduce) return;
+
+  const mm = gsap.matchMedia();
+  const progress = document.querySelector(".progress");
+  if (progress) {
+    gsap.to(progress, {
+      scaleX: 1, ease: "none",
+      scrollTrigger: { start: 0, end: "max", scrub: 0.3 }
+    });
+  }
+
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    const portal = hero.querySelector(".portal");
+    const photo = hero.querySelector(".hero-photo");
+    const scrim = hero.querySelector(".hero-scrim");
+    const copy = hero.querySelector(".hero-copy");
+    const lines = hero.querySelectorAll("h1 span");
+    const arches = hero.querySelectorAll(".arch path");
+    const frame = hero.querySelector(".hero-frame");
+    const dust = hero.querySelector(".dust");
+    const nav = document.querySelector(".nav");
+    let dustBoost = 1;
+    initDust(dust, function () { return dustBoost; });
+    hero.querySelectorAll(".frame-line").forEach(function (path) {
+      if (!path.getTotalLength) return;
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = String(len);
+      path.style.strokeDashoffset = String(len);
+    });
+    gsap.to(".frame-line", { strokeDashoffset: 0, duration: 2.6, stagger: 0.08, ease: "power2.inOut" });
+    gsap.to(".finial", { y: -7, duration: 2.8, repeat: -1, yoyo: true, ease: "sine.inOut", stagger: 0.18 });
+    const cover = function () {
+      const w = portal.offsetWidth || 1;
+      const h = portal.offsetHeight || 1;
+      return Math.max(window.innerWidth / w, window.innerHeight / h) * 1.12;
+    };
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: function () { return window.innerWidth < 800 ? "+=75%" : "+=140%"; },
+        pin: true,
+        scrub: 0.7,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: function (self) {
+          dustBoost = 1 + self.progress * 5;
+          const onPhoto = self.progress > 0.42 && self.progress < 0.98;
+          hero.classList.toggle("is-lit", self.progress > 0.42);
+          if (!nav) return;
+          nav.classList.toggle("is-light", onPhoto);
+          nav.classList.toggle("is-solid", self.progress >= 0.98);
+        }
+      }
+    });
+    tl.to(portal, { scale: cover, borderRadius: 0, ease: "none", duration: 1 }, 0)
+      .to(photo, { scale: 1, ease: "none", duration: 1 }, 0)
+      .to(frame, { opacity: 0, ease: "none", duration: 0.45 }, 0.15)
+      .to(dust, { opacity: 0, ease: "none", duration: 0.4 }, 0.2)
+      .to(arches, { opacity: 0, scale: 1.35, stagger: 0.04, ease: "none", duration: 0.55 }, 0)
+      .to(scrim, { opacity: 1, ease: "none", duration: 0.45 }, 0.32)
+      .to(lines[0], { xPercent: -4, y: -8, ease: "none", duration: 1 }, 0.2)
+      .to(lines[1], { xPercent: 7, y: 18, ease: "none", duration: 1 }, 0.2);
+
+    mm.add("(min-width: 981px)", function () {
+      const shots = gsap.utils.toArray(".remember .shots figure");
+      if (shots.length) {
+        gsap.to(shots, {
+          x: 0, y: 0, rotation: 0, ease: "none",
+          scrollTrigger: {
+            trigger: ".remember",
+            start: "top top",
+            end: "+=90%",
+            pin: true,
+            scrub: 0.8
+          }
+        });
+        gsap.from(".remember-copy p", {
+          y: 28, opacity: 0, stagger: 0.12, ease: "power2.out",
+          scrollTrigger: { trigger: ".remember", start: "top 70%", toggleActions: "play none none reverse" }
+        });
+      }
+
+      const cards = gsap.utils.toArray(".orbit-card");
+      const stage = document.querySelector(".orbit-stage");
+      const liveTitle = document.querySelector(".orbit-title");
+      const liveMeta = document.querySelector(".orbit-meta");
+      const liveDesc = document.querySelector(".orbit-desc");
+      const liveCount = document.querySelector(".orbit-count");
+      const liveMore = document.querySelector(".orbit-more");
+      let orbitCleanup = function () {};
+      if (cards.length && stage) {
+        let shown = 0;
+        const fade = 0.52;
+        const paint = function (i) {
+          const card = cards[i];
+          liveTitle.textContent = card.dataset.name;
+          liveMeta.textContent = card.dataset.meta;
+          liveDesc.textContent = card.dataset.desc;
+          liveCount.textContent = String(i + 1).padStart(2, "0") + " / 0" + cards.length;
+          liveMore.href = card.dataset.href;
+        };
+        const indexItems = gsap.utils.toArray(".room-index li");
+        const markIndex = function (i) {
+          indexItems.forEach(function (item, n) {
+            item.classList.toggle("is-on", n === i);
+            const button = item.querySelector("button");
+            if (button) button.setAttribute("aria-current", n === i ? "true" : "false");
+          });
+        };
+        const showRoom = function (i) {
+          i = Math.max(0, Math.min(cards.length - 1, i));
+          if (i === shown) return;
+          shown = i;
+          cards.forEach(function (card, n) {
+            if (n === i) {
+              gsap.set(card, { zIndex: 2 });
+              gsap.to(card, { opacity: 1, duration: fade, ease: "power2.out", overwrite: "auto" });
+            } else {
+              gsap.set(card, { zIndex: 1 });
+              if (Number(gsap.getProperty(card, "opacity")) > 0.01) {
+                gsap.to(card, { opacity: 0, duration: fade, ease: "power2.out", overwrite: "auto" });
+              }
+            }
+          });
+          markIndex(i);
+          paint(i);
+        };
+        paint(0);
+        markIndex(0);
+        ScrollTrigger.create({
+          trigger: ".orbit",
+          start: "top top",
+          end: "+=220%",
+          pin: true,
+          scrub: 0.6,
+          onUpdate: function (self) {
+            const n = cards.length;
+            showRoom(Math.min(n - 1, Math.floor(self.progress * n)));
+          }
+        });
+        orbitCleanup = function () {
+          cards.forEach(function (card) {
+            gsap.killTweensOf(card);
+            card.style.removeProperty("opacity");
+            card.style.removeProperty("z-index");
+          });
+        };
+      }
+
+      const track = document.querySelector(".comfort-track");
+      if (track) {
+        const tween = gsap.to(track, {
+          x: function () { return -(track.scrollWidth - window.innerWidth); },
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".comfort",
+            start: "top top",
+            end: function () { return "+=" + (track.scrollWidth - window.innerWidth); },
+            pin: true,
+            scrub: 0.8,
+            invalidateOnRefresh: true
+          }
+        });
+        gsap.to(".comfort-arch", {
+          x: -180, y: 40, rotation: 8, ease: "none",
+          scrollTrigger: {
+            containerAnimation: tween,
+            trigger: ".comfort-track",
+            start: "left left",
+            end: "right right",
+            scrub: true
+          }
+        });
+      }
+
+      const tiles = gsap.utils.toArray(".arrange figure");
+      if (tiles.length) {
+        gsap.to(tiles, {
+          x: 0, y: 0, rotation: 0, ease: "none",
+          scrollTrigger: {
+            trigger: ".gallery-home",
+            start: "top 70%",
+            end: "center center",
+            scrub: 0.7
+          }
+        });
+      }
+
+      gsap.from(".jaipur-mosaic figure", {
+        y: 36, opacity: 0, stagger: 0.1, duration: 0.9, ease: "power2.out",
+        scrollTrigger: { trigger: ".jaipur", start: "top 72%", toggleActions: "play none none reverse" }
+      });
+
+      return orbitCleanup;
+    });
+  }
+
+  mm.add("(min-width: 900px) and (prefers-reduced-motion: no-preference)", function () {
+    gsap.utils.toArray(".stay-hero").forEach(function (el) {
+      const img = el.querySelector("img");
+      if (!img) return;
+      gsap.fromTo(img, { scale: 1.16 }, {
+        scale: 1, ease: "none",
+        scrollTrigger: { trigger: el, start: "top top", end: "+=65%", pin: true, scrub: 0.6 }
+      });
+    });
+    gsap.utils.toArray(".story-block img").forEach(function (img) {
+      gsap.fromTo(img, { yPercent: -8, scale: 1.08 }, {
+        yPercent: 8, scale: 1, ease: "none",
+        scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true }
+      });
+    });
+  });
+
+  mm.add("(min-width: 981px)", function () {
+    const ring = document.querySelector(".ring");
+    if (!ring) return;
+    const figs = gsap.utils.toArray(".ring figure");
+    const n = figs.length;
+    const place = function () {
+      const radius = Math.min(window.innerWidth, window.innerHeight) * 0.26;
+      figs.forEach(function (fig, i) {
+        const ang = (i / n) * Math.PI * 2 - Math.PI / 2;
+        gsap.set(fig, { x: Math.cos(ang) * radius, y: Math.sin(ang) * radius * 0.46 + 28 });
+      });
+    };
+    place();
+    gsap.timeline({
+      scrollTrigger: { trigger: ".ring-wrap", start: "top top", end: "+=150%", pin: true, scrub: 0.8 }
+    }).to(ring, { rotationY: 160, rotation: 50, ease: "none" }, 0);
+  });
+
+  const pageHero = document.querySelector(".page-hero img");
+  if (pageHero) {
+    gsap.fromTo(pageHero, { scale: 1.12 }, {
+      scale: 1, ease: "none",
+      scrollTrigger: { trigger: ".page-hero", start: "top top", end: "bottom top", scrub: true }
+    });
+  }
+
+  window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+
+  function particleDissolve(img, canvas, getFrame, setFrame) {
+    if (!img || !canvas || !img.naturalWidth) return;
+    const stage = canvas.parentElement;
+    const width = stage.clientWidth;
+    const height = stage.clientHeight;
+    if (!width || !height) return;
+    cancelAnimationFrame(getFrame());
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = Math.max(1, Math.floor(width * dpr));
+    canvas.height = Math.max(1, Math.floor(height * dpr));
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const sample = document.createElement("canvas");
+    const sw = Math.max(1, Math.floor(width / 2));
+    const sh = Math.max(1, Math.floor(height / 2));
+    sample.width = sw;
+    sample.height = sh;
+    const sctx = sample.getContext("2d", { willReadFrequently: true });
+    const cover = Math.max(sw / img.naturalWidth, sh / img.naturalHeight);
+    const dw = img.naturalWidth * cover;
+    const dh = img.naturalHeight * cover;
+    sctx.drawImage(img, (sw - dw) / 2, (sh - dh) / 2, dw, dh);
+    let pixels;
+    try { pixels = sctx.getImageData(0, 0, sw, sh).data; }
+    catch (err) { return; }
+    const gap = 6;
+    const parts = [];
+    for (let y = 0; y < sh; y += gap) {
+      for (let x = 0; x < sw; x += gap) {
+        const i = (y * sw + x) * 4;
+        if (pixels[i + 3] < 30) continue;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 0.35 + Math.random() * 2.2;
+        parts.push({
+          x: x * (width / sw),
+          y: y * (height / sh),
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 0.4,
+          r: pixels[i],
+          g: pixels[i + 1],
+          b: pixels[i + 2],
+          size: (width / sw) * gap * (0.7 + Math.random() * 0.5),
+          life: 1,
+          decay: 0.011 + Math.random() * 0.018
+        });
+      }
+    }
+    function frame() {
+      ctx.clearRect(0, 0, width, height);
+      let alive = false;
+      for (let n = 0; n < parts.length; n++) {
+        const p = parts[n];
+        if (p.life <= 0) continue;
+        alive = true;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.028;
+        p.vx *= 0.99;
+        p.life -= p.decay;
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.fillStyle = "rgb(" + p.r + "," + p.g + "," + p.b + ")";
+        const s = Math.max(1, p.size * (0.3 + p.life * 0.7));
+        ctx.fillRect(p.x, p.y, s, s);
+      }
+      ctx.globalAlpha = 1;
+      if (alive) setFrame(requestAnimationFrame(frame));
+      else ctx.clearRect(0, 0, width, height);
+    }
+    ctx.drawImage(sample, 0, 0, width, height);
+    setFrame(requestAnimationFrame(frame));
+  }
+
+  function initDust(canvas, boost) {
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d", { alpha: true });
+    const mobile = window.matchMedia("(max-width: 800px)").matches;
+    const count = mobile ? 46 : 130;
+    const parts = [];
+    let w = 0;
+    let h = 0;
+    let dpr = 1;
+    let raf = 0;
+    let running = true;
+    function spawn(p, far) {
+      p.x = Math.random() * 2 - 1;
+      p.y = Math.random() * 2 - 1;
+      p.z = far ? Math.random() * 0.85 + 0.15 : 1;
+      p.vz = 0.0016 + Math.random() * 0.0024;
+      p.size = 0.7 + Math.random() * 1.5;
+      p.wine = Math.random() > 0.78;
+    }
+    for (let i = 0; i < count; i++) {
+      const p = {};
+      spawn(p, true);
+      parts.push(p);
+    }
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth || window.innerWidth;
+      h = canvas.clientHeight || window.innerHeight;
+      canvas.width = Math.max(1, Math.floor(w * dpr));
+      canvas.height = Math.max(1, Math.floor(h * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function tick() {
+      if (!running) return;
+      const speed = boost ? boost() : 1;
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < parts.length; i++) {
+        const p = parts[i];
+        p.z -= p.vz * speed;
+        if (p.z < 0.08) spawn(p, false);
+        const persp = 0.9 / p.z;
+        const x = w * 0.5 + p.x * w * 0.46 * persp;
+        const y = h * 0.46 + p.y * h * 0.4 * persp;
+        if (x < -30 || x > w + 30 || y < -30 || y > h + 30) continue;
+        const radius = Math.max(0.8, p.size * persp * 1.15);
+        const alpha = Math.min(0.75, (1 - p.z) * 0.72);
+        ctx.beginPath();
+        ctx.fillStyle = p.wine ? "rgba(110, 36, 48, " + alpha + ")" : "rgba(154, 117, 64, " + alpha + ")";
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+        if (p.z < 0.35) {
+          ctx.beginPath();
+          ctx.fillStyle = "rgba(255, 248, 236, " + Math.min(0.85, alpha + 0.2) + ")";
+          ctx.arc(x - radius * 0.25, y - radius * 0.25, Math.max(0.4, radius * 0.35), 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    const watch = new IntersectionObserver(function (entries) {
+      running = entries[0].isIntersecting;
+      if (running) tick();
+      else cancelAnimationFrame(raf);
+    });
+    watch.observe(canvas.parentElement || canvas);
+  }
+})();
+
+</script>
+</body>
+</html>

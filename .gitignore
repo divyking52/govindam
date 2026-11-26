@@ -1,0 +1,11 @@
+# Browser profiles used only for local screenshots
+_parts/*-cdp/
+_parts/*profile*/
+_parts/cprofile*/
+_parts/v2/
+
+# Local screenshot artifacts
+_parts/*.png
+
+# Vercel local link
+.vercel/
