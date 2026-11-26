@@ -9,3 +9,4 @@ _parts/*.png
 
 # Vercel local link
 .vercel/
+.vercel
