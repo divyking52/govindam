@@ -610,7 +610,20 @@ a.float-book {
 
 @media (max-width: 980px) {
   .nav-links, .nav .nav-book { display: none; }
-  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .nav {
+    left: 0; right: 0; width: auto; max-width: 100%;
+    padding: 0 8px 0 16px; gap: 12px; box-sizing: border-box;
+    background: rgba(243, 238, 228, 0.96);
+  }
+  .nav-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    flex: 0 0 44px; margin-left: auto; color: var(--ink); z-index: 60;
+  }
+  .nav-toggle .sr, .nav-toggle .sr:before, .nav-toggle .sr:after { display: none; }
+  .nav-toggle[aria-expanded="true"] span { background: transparent; }
+  .nav-toggle[aria-expanded="true"] span:before { top: 0; transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:after { top: 0; transform: rotate(-45deg); }
+  .menu { left: 0; right: 0; width: auto; max-width: 100%; padding-bottom: 110px; }
   a.float-book { display: inline-flex; }
   .hero-sticky { height: auto; min-height: 100dvh; overflow: visible; padding-bottom: 36px; }
   .staybar { flex-wrap: wrap; border-radius: 14px; padding: 12px; }
@@ -620,8 +633,8 @@ a.float-book {
   a.float-book.is-hidden { display: none; }
   .portal { width: min(300px, 78vw); height: min(300px, 38dvh); }
   .jali-panel { display: none; }
-  html, body { overflow-x: clip; max-width: 100%; }
-  body { padding-bottom: 96px; }
+  body { padding-bottom: 96px; max-width: 100%; }
+  .hero-frame { overflow: hidden; }
   .remember-pin, .orbit-pin, .jaipur, .enquiry, .footer-grid, .stay-grid, .about-wrap, .story-block, .contact-grid, .panel {
     grid-template-columns: 1fr;
   }
