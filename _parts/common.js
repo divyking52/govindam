@@ -503,5 +503,53 @@
     });
   });
 
+  const jaipur = document.querySelector(".jaipur-stage");
+  if (jaipur) {
+    const shots = jaipur.querySelectorAll(".mosaic-main img");
+    const cap = jaipur.querySelector(".mosaic-main figcaption");
+    const places = jaipur.querySelectorAll(".places [data-img]");
+    const current = jaipur.querySelector(".mosaic-main img.is-show");
+    let showing = current ? current.getAttribute("src") : "";
+    let token = 0;
+    function showPlace(btn) {
+      const src = btn.getAttribute("data-img");
+      if (!src || src === showing || shots.length < 2) return;
+      showing = src;
+      const id = ++token;
+      const incoming = shots[0].classList.contains("is-show") ? shots[1] : shots[0];
+      const outgoing = incoming === shots[0] ? shots[1] : shots[0];
+      function reveal() {
+        if (id !== token) return;
+        incoming.alt = btn.getAttribute("data-alt") || "";
+        incoming.classList.add("is-show");
+        outgoing.classList.remove("is-show");
+        if (cap) cap.textContent = btn.getAttribute("data-cap") || "";
+        places.forEach(function (item) {
+          const on = item === btn;
+          item.parentElement.classList.toggle("is-on", on);
+          item.setAttribute("aria-current", on ? "true" : "false");
+        });
+      }
+      if (incoming.getAttribute("src") !== src) incoming.src = src;
+      if (incoming.complete && incoming.naturalWidth) reveal();
+      else incoming.addEventListener("load", reveal, { once: true });
+    }
+    places.forEach(function (btn) {
+      btn.addEventListener("mouseenter", function () { showPlace(btn); });
+      btn.addEventListener("focus", function () { showPlace(btn); });
+      btn.addEventListener("click", function () { showPlace(btn); });
+      btn.setAttribute("aria-current", btn.parentElement.classList.contains("is-on") ? "true" : "false");
+    });
+  }
+
+  const floatBook = document.querySelector("a.float-book");
+  const staybarWatch = document.querySelector("#staybar");
+  if (floatBook && staybarWatch && "IntersectionObserver" in window) {
+    const watch = new IntersectionObserver(function (entries) {
+      floatBook.classList.toggle("is-hidden", entries[0].isIntersecting);
+    }, { threshold: 0.2 });
+    watch.observe(staybarWatch);
+  }
+
   window.GRS = { reduce: reduce, book: BOOK, nav: nav };
 })();

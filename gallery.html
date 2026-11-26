@@ -421,6 +421,15 @@ a.float-book {
   border-top: 1px solid var(--line); padding: 12px 0 11px; font-size: 17px;
 }
 .places li:last-child { border-bottom: 1px solid var(--line); }
+.places li:has(button) { display: block; padding: 0; }
+.places button {
+  display: grid; grid-template-columns: 42px 1fr; gap: 8px; align-items: baseline;
+  width: 100%; padding: 12px 0 11px; border: 0; background: none; color: inherit;
+  font: inherit; text-align: left; cursor: pointer;
+}
+.places button:focus-visible { outline: 1px solid var(--wine); outline-offset: 2px; }
+.places li.is-on,
+.places button:hover { color: var(--ink); }
 .places span { font-size: 12px; letter-spacing: 0.14em; color: var(--wine); }
 .jaipur-mosaic {
   display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: minmax(340px, 54vh) 230px; gap: 12px;
@@ -428,6 +437,9 @@ a.float-book {
 .mosaic-main { grid-column: 1 / -1; }
 .jaipur-mosaic figure { margin: 0; position: relative; overflow: hidden; background: #cbbba6; height: 100%; }
 .jaipur-mosaic img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+.mosaic-main img { position: absolute; inset: 0; opacity: 0; transition: opacity 0.45s ease; }
+.mosaic-main img.is-show { opacity: 1; }
+.mosaic-main figcaption { z-index: 1; }
 .jaipur-mosaic figcaption {
   position: absolute; left: 0; bottom: 0; padding: 9px 14px;
   background: rgba(36, 23, 15, 0.62); color: #f6f1e8;
@@ -530,7 +542,7 @@ a.float-book {
 .lb-next { right: 12px; }
 .lb-x { top: 16px; right: 16px; transform: none; }
 
-.page-hero { min-height: 88vh; position: relative; display: flex; align-items: flex-end; color: #f6f1e8; background: #2a1c16; }
+.page-hero { min-height: 88vh; position: relative; display: flex; align-items: flex-end; color: #f6f1e8; background: #2a1c16; overflow: hidden; }
 .page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .page-hero .veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(24,14,10,.72), rgba(24,14,10,.12) 55%); }
 .page-hero .page-copy { position: relative; z-index: 1; padding: 18vh var(--pad) 8vh; max-width: 920px; }
@@ -596,14 +608,15 @@ a.float-book {
   .nav-links, .nav .nav-book { display: none; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
   a.float-book { display: inline-flex; }
-  .hero-sticky { height: auto; min-height: 100dvh; overflow: visible; padding-bottom: 108px; }
+  .hero-sticky { height: auto; min-height: 100dvh; overflow: visible; padding-bottom: 36px; }
   .staybar { flex-wrap: wrap; border-radius: 14px; padding: 12px; }
   .staybar-place, .staybar-occ { flex: 1 1 42%; }
   .staybar-dates { flex: 1 1 100%; }
-  .staybar-go { flex: 1 1 100%; margin: 8px 0 0; }
+  .staybar-go { flex: 1 1 100%; margin: 8px 0 0; min-height: 48px; }
+  a.float-book.is-hidden { display: none; }
   .portal { width: min(300px, 78vw); height: min(300px, 38dvh); }
   .jali-panel { display: none; }
-  body { padding-bottom: 76px; }
+  body { padding-bottom: 104px; overflow-x: hidden; }
   .remember-pin, .orbit-pin, .jaipur, .enquiry, .footer-grid, .stay-grid, .about-wrap, .story-block, .contact-grid, .panel {
     grid-template-columns: 1fr;
   }
@@ -617,21 +630,27 @@ a.float-book {
   .orbit-card-copy { display: grid; gap: 10px; padding-top: 12px; }
   .room-index { display: none; }
   .room-dissolve { display: none; }
-  .comfort-track { display: block; height: auto; }
-  .panel { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .comfort-pin { height: auto; min-height: 0; overflow: visible; }
+  .comfort-track { display: flex; flex-direction: column; height: auto; width: 100%; transform: none; }
+  .panel {
+    display: flex; flex-direction: column; width: 100%; flex: none; min-height: 0;
+    border-right: 0; border-bottom: 1px solid var(--line);
+  }
+  .panel-photo { width: 100%; height: 58vw; min-height: 210px; flex: none; }
+  .panel-photo img { transform: none; }
+  .panel-copy, .park-panel .panel-copy { position: relative; width: auto; padding: 22px var(--pad) 28px; }
   .arrival-art { grid-template-columns: 1fr 1fr 1fr; }
   .arrival-art figure, .arrival-art figure:nth-child(2), .arrival-art figure:nth-child(3) { transform: none; }
   .arrival-art img { height: 34vw; }
   .arrival-copy { grid-template-columns: 1fr; }
-  .panel-photo { height: 58vw; min-height: 220px; }
-  .panel-copy { padding: 24px var(--pad) 32px; }
-  .park-scene { position: relative; inset: auto; height: auto; margin: 28px var(--pad) 0; }
-  .park-panel .panel-copy { width: auto; padding: 24px var(--pad) 32px; }
+  .park-scene { position: relative; inset: auto; height: auto; margin: 20px var(--pad) 0; }
   .comfort-arch { display: none; }
   .arrange { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
   .arrange .wide, .arrange .tall { grid-column: auto; grid-row: auto; }
   .jaipur-head, .jaipur-stage { grid-template-columns: 1fr; }
-  .jaipur-mosaic { order: -1; grid-template-rows: 42vh 180px; }
+  .jaipur-stage { display: flex; flex-direction: column; }
+  .jaipur-mosaic { order: -1; grid-template-columns: 1fr; grid-template-rows: 58vw; position: sticky; top: calc(var(--nav) + 6px); z-index: 2; }
+  .jaipur-mosaic figure:not(.mosaic-main) { display: none; }
   .voice-track { grid-template-columns: 1fr 1fr; }
   .form, .summary dl { grid-template-columns: 1fr; }
   .ticket { grid-template-columns: 1fr; }
@@ -652,12 +671,14 @@ a.float-book {
 }
 @media (max-width: 640px) {
   .hero h1 span + span { padding-left: 0; }
+  .portal { width: min(250px, 68vw); height: min(220px, 30dvh); }
+  .hero h1 { font-size: clamp(40px, 11vw, 58px); }
+  .lede { font-size: 16px; }
   .shots { grid-template-columns: 1fr; grid-template-rows: none; }
   .shot-a { grid-row: auto; height: 280px; }
   .shots figure { height: 220px; }
   .arrange { grid-template-columns: 1fr; }
-  .jaipur-mosaic { grid-template-rows: 36vh auto; grid-template-columns: 1fr; }
-  .jaipur-mosaic figure:not(.mosaic-main) { height: 200px; }
+  .jaipur h2 { font-size: clamp(42px, 12vw, 64px); }
   .voice-track { grid-template-columns: 1fr; }
   .masonry { columns: 1; }
   .map-wrap iframe { height: 300px; }
@@ -666,7 +687,7 @@ a.float-book {
   .park-car, .park-rot { animation: none; }
   .park-car { transform: translate(315px, 186px); }
   .park-rot { transform: rotate(-90deg); }
-  .curtain, .menu, .arrange img, .masonry img { transition: none; }
+  .curtain, .menu, .arrange img, .masonry img, .mosaic-main img { transition: none; }
   .shot-a, .shot-b, .shot-c, .g1, .g2, .g3, .g4, .g5, .g6 { transform: none; }
 }
 
@@ -1270,6 +1291,54 @@ a.float-book {
       });
     });
   });
+
+  const jaipur = document.querySelector(".jaipur-stage");
+  if (jaipur) {
+    const shots = jaipur.querySelectorAll(".mosaic-main img");
+    const cap = jaipur.querySelector(".mosaic-main figcaption");
+    const places = jaipur.querySelectorAll(".places [data-img]");
+    const current = jaipur.querySelector(".mosaic-main img.is-show");
+    let showing = current ? current.getAttribute("src") : "";
+    let token = 0;
+    function showPlace(btn) {
+      const src = btn.getAttribute("data-img");
+      if (!src || src === showing || shots.length < 2) return;
+      showing = src;
+      const id = ++token;
+      const incoming = shots[0].classList.contains("is-show") ? shots[1] : shots[0];
+      const outgoing = incoming === shots[0] ? shots[1] : shots[0];
+      function reveal() {
+        if (id !== token) return;
+        incoming.alt = btn.getAttribute("data-alt") || "";
+        incoming.classList.add("is-show");
+        outgoing.classList.remove("is-show");
+        if (cap) cap.textContent = btn.getAttribute("data-cap") || "";
+        places.forEach(function (item) {
+          const on = item === btn;
+          item.parentElement.classList.toggle("is-on", on);
+          item.setAttribute("aria-current", on ? "true" : "false");
+        });
+      }
+      if (incoming.getAttribute("src") !== src) incoming.src = src;
+      if (incoming.complete && incoming.naturalWidth) reveal();
+      else incoming.addEventListener("load", reveal, { once: true });
+    }
+    places.forEach(function (btn) {
+      btn.addEventListener("mouseenter", function () { showPlace(btn); });
+      btn.addEventListener("focus", function () { showPlace(btn); });
+      btn.addEventListener("click", function () { showPlace(btn); });
+      btn.setAttribute("aria-current", btn.parentElement.classList.contains("is-on") ? "true" : "false");
+    });
+  }
+
+  const floatBook = document.querySelector("a.float-book");
+  const staybarWatch = document.querySelector("#staybar");
+  if (floatBook && staybarWatch && "IntersectionObserver" in window) {
+    const watch = new IntersectionObserver(function (entries) {
+      floatBook.classList.toggle("is-hidden", entries[0].isIntersecting);
+    }, { threshold: 0.2 });
+    watch.observe(staybarWatch);
+  }
 
   window.GRS = { reduce: reduce, book: BOOK, nav: nav };
 })();
